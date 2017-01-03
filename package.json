@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/dkulp23/301-Final-Project/issues"
   },
-  "homepage": "https://github.com/dkulp23/301-Final-Project#readme"
+  "homepage": "https://github.com/dkulp23/301-Final-Project#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }

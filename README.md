@@ -2,27 +2,27 @@
 Final Project for Codefellows 301
 
 M.V.P.
-*Patient Help System
-  *Central app relies on map
-  * Patient Location
-  * Geo-location via browser
-  * Big Red button for active alert
-  *Method for deactivating active alert
+-Patient Help System
+  -Central app relies on map
+  - Patient Location
+  - Geo-location via browser
+  - Big Red button for active alert
+  -Method for deactivating active alert
 
-* Information/Documentation
-  * Not a substitute for 911!!
-  * is this an OD
-  * how can I help
-  * Where can I get a license to carry the drug
+- Information/Documentation
+  - Not a substitute for 911!!
+  - is this an OD
+  - how can I help
+  - Where can I get a license to carry the drug
 
-* Register Carriers of Narcan
-  * DB for registered carries
-  * Notification System (may have to mock this out)
-  * Active alerts / responder system
-  * toggle availability
+- Register Carriers of Narcan
+  - DB for registered carries
+  - Notification System (may have to mock this out)
+  - Active alerts / responder system
+  - toggle availability
 
 Stretch Goals
-* Heroku postures DB (but apparently required)
+- Heroku postures DB (but apparently required)
 
 
 User Stories
@@ -32,4 +32,29 @@ User Stories
 
 - As a general user I would like the ability to access resources for helping identifying heroine ODs
 - As a general user I would like the common signs of an OD directly laid out
-- As a general user I would like an easy to use interface *(button) that allows me to alert registered Narcan carries to an OD
+- As a general user I would like an easy to use interface (button) that allows me to alert registered Narcan carries to an OD
+
+
+
+Page Scaffolding
+
+*Main page*
+  Carrier Sign-in
+  Report an Overdose
+  "Disclaimer"
+
+*Carrier Sign-in Branch*
+  Form:
+    User information, options on availability (range from main address) and information to display (show phone number or not)
+  Activate/Deactivate availability
+  Map with nearby Patients
+
+*General User Branch (Report an Overdose) - Informational/Transitional Page*
+  What does an OD look like: Series of checkboxes to help users identify the situation
+  Links to additional information
+  Report and Overdose (button)
+
+*Overdose reporting*
+  Map
+    Ability to drop a pin
+  List of carries that have agreed to share information

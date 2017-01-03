@@ -1,0 +1,24 @@
+{
+  "name": "code-301-final-project",
+  "version": "1.0.0",
+  "description": "Final Project for Codefellows 301",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkulp23/301-Final-Project.git"
+  },
+  "author": "Kaylee Alvarado, Dana Kulp, Meagan Mason, Chris Olds, Maithrika Sara, Rosemary Tuttle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dkulp23/301-Final-Project/issues"
+  },
+  "homepage": "https://github.com/dkulp23/301-Final-Project#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-request-proxy": "^2.0.0"
+  }
+}

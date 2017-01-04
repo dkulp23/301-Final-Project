@@ -27,9 +27,24 @@
     <!-- TODO add event listener that displays the Informational page on click-->
     <button id="reportOD">Report an OD</button>
     <h3>Call 911 if this is a matter of life and death</h3>
+    <!-- TODO redirect the user to the registerUser page -->
     <button id="register">Click here to register as a Narcan Carrier</button>
   </section>
+
   <section id="informational">
+    <!-- TODO Use JS to switch between the array of images  -->
+    <img src="[array of images]" alt="ODSigns">
+    <!--TODO Direct the user to the reportODMap section -->
+    <button type="button" id="yesReportOD">Yes I am witness an OD and need to Report</button>
+  </section>
+
+  <section id="reportODMap">
+    <!-- TODO Add the google maps interaction here -->
+    <img src="http://i.imgur.com/JIxaBgG.jpg" />
+    <article id="receivingTemplate"></article>
+  </section>
+
+  <section id="registerUser">
     <form action="something" method="post">
       <label>Name:</label>
       <input id="carrierName" type="text" placeholder="Full Name" required>
@@ -42,16 +57,12 @@
       <label>License Number:</label>
       <input id="carrierLicense" type="integer" placeholder="123-456-789" required>
       <label>
+        <!-- TODO add submit functionality that takes form data and puts it into the DB  -->
         <input type="button" id="registerButton" value="Send">
       </label>
     </form>
   </section>
-  <section id="reportODMap">
-    <img src="http://i.imgur.com/JIxaBgG.jpg" />
-    <article id="receivingTemplate"></article>
-  </section>
-  <section id="registerUser">
-  </section>
+
   <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>

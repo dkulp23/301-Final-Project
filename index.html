@@ -8,21 +8,24 @@
   <link rel="stylesheet" href="/styles/module.css">
   <link rel="stylesheet" href="/styles/state.css">
   <link rel="stylesheet" href="/styles/theme.css" />
-  <script id="template" type="text/x-handlebars-template">
-  <article>
-    <p id="registeredName">{{name}}</p>
-    <p id="registeredPhoneNumber">{{phone-number}}</p>
-    <p id="registeredAddress">{{address}}</p>
-  </article>
-</script>
+  <script id="registeredTemplate" type="text/x-handlebars-template">
+    <article>
+      <p id="registeredName">{{name}}</p>
+      <p id="registeredPhoneNumber">{{phone-number}}</p>
+      <p id="registeredAddress">{{address}}</p>
+    </article>
+  </script>
   <title>Final Group Project for Codefellows 301</title>
 </head>
 <body>
-  <section id="landingPage">
+  <div id="nav-bar">
+    <a href="" class="nav-item" data-content="landingPage">Home</a>
+    <a href="" class="nav-item" data-content="informational">Information to Identify Overdoses</a>
+    <a href="" class="nav-item" data-content="registerUser">Register to Carry Narcan</a>
+  </div>
+  <section id="landingPage" class="page-content">
     <h1>Best 301 Project EVER!!!</h1>
-    <a href="">Report a Heroin Overdose</a>
-    <a href="">Registered Carrier Sign-In</a>
-    <a href="">Register to Carry Narcan</a>
+
     <h3>This is an educational project and should not be used in lieu of real medical assistance</h3>
     <!-- TODO add event listener that displays the Informational page on click-->
     <button id="reportOD">Report an OD</button>
@@ -31,7 +34,7 @@
     <button id="register">Click here to register as a Narcan Carrier</button>
   </section>
 
-  <section id="informational">
+  <section id="informational" class="page-content">
     <!-- TODO Use JS to switch between the array of images  -->
     <img src="[array of images]" alt="ODSigns">
     <!--TODO Direct the user to the reportODMap section -->
@@ -42,41 +45,41 @@
       <li>The center part of their eye is very small — sometimes called “pinpoint pupils”</li>
       <li>Their fingernails and lips turning blue or purple</li>
       <li>Slow heartbeat and/or low blood pressure</li>
-    <ul>
-    <button type="button" id="yesReportOD">Yes I am witness an OD and need to Report</button>
-  </section>
+      <ul>
+        <button type="button" id="yesReportOD">Yes I am witness an OD and need to Report</button>
+      </section>
 
-  <section id="reportODMap">
-    <!-- TODO Add the google maps interaction here -->
-    <img src="http://i.imgur.com/JIxaBgG.jpg" />
-    <article id="receivingTemplate"></article>
-  </section>
+      <section id="reportODMap" class="page-content">
+        <!-- TODO Add the google maps interaction here -->
+        <img src="http://i.imgur.com/JIxaBgG.jpg" />
+        <article id="receivingTemplate"></article>
+      </section>
 
-  <section id="registerUser">
-    <form action="something" method="post">
-      <label>Name:</label>
-      <input id="carrierName" type="text" placeholder="Full Name" required>
-      <label>Email:</label>
-      <input id="carrierEmail" type="text" placeholder="ABC@gmail.com" required>
-      <label>Address:</label>
-      <input id="carrierAddress" type="text" placeholder="123 Main St" required>
-      <label>Phone:</label>
-      <input id="carrierPhone" type="integer" placeholder="(123)-456-7890" required>
-      <label>License Number:</label>
-      <input id="carrierLicense" type="integer" placeholder="123-456-789" required>
-      <label>
-        <!-- TODO add submit functionality that takes form data and puts it into the DB  -->
-        <input type="button" id="registerButton" value="Send">
-      </label>
-    </form>
+      <section id="registerUser" class="page-content">
+        <form action="something" method="post">
+          <label>Name:</label>
+          <input id="carrierName" type="text" placeholder="Full Name" required>
+          <label>Email:</label>
+          <input id="carrierEmail" type="text" placeholder="ABC@gmail.com" required>
+          <label>Address:</label>
+          <input id="carrierAddress" type="text" placeholder="123 Main St" required>
+          <label>Phone:</label>
+          <input id="carrierPhone" type="integer" placeholder="(123)-456-7890" required>
+          <label>License Number:</label>
+          <input id="carrierLicense" type="integer" placeholder="123-456-789" required>
+          <label>
+            <!-- TODO add submit functionality that takes form data and puts it into the DB  -->
+            <input type="button" id="registerButton" value="Send">
+          </label>
+        </form>
 
-  </section>
+      </section>
 
-  <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-  <script src="/scripts/models/index.js"></script>
-  <script src="/scripts/views/indexView.js"></script>
-  <script src="/scripts/controllers/routes.js"></script>
-</body>
-</html>
+      <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+      <script src="/scripts/models/index.js"></script>
+      <script src="/scripts/views/indexView.js"></script>
+      <script src="/scripts/controllers/routes.js"></script>
+    </body>
+    </html>

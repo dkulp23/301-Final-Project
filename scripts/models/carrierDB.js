@@ -1,5 +1,3 @@
-var carrierDB = {}
+(function(module){
 
-carrierDB.createTable = function() {
-  
-}
+})(window);

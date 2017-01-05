@@ -9,15 +9,22 @@
     this.state = obj.state;
     this.zip = obj.zip;
     this.email = obj.email;
+    Carrier.allCarriers.push(this);
   };
 
   Carrier.allCarriers = [ ];
 
   Carrier.getData = function() {
     $.getJSON('/carriersDB', function(data) {
-      JSON.stringify(data);
+      console.log(data.rows, 'data');
+      data.rows.forEach(function(ele) {
+        var newCarrier = new Carrier(ele)
+        console.log(ele, 'ele');
+        console.log('getData function successful')
+      })
     });
   };
 
+  Carrier.getData();
   module.Carrier = Carrier;
 })(window);

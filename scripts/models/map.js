@@ -27,11 +27,6 @@ function initMap(pos) {
         infoWindow.open(map, marker);
       });
 
-      // infoWindow.setPosition(pos);
-      // infoWindow.setContent(JSON.stringify(pos));
-      // map.setCenter(pos);
-
-
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });

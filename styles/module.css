@@ -1,0 +1,22 @@
+@import url('http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css');
+
+/* INFO PAGE */
+.symptoms {
+  max-width: 40%;
+  max-height: 40%;
+}
+
+#infoCarousel {
+  margin-top: 40px;
+}
+
+.carousel-linked-nav,
+.item img {
+  display: block;
+  margin: 0 auto;
+}
+
+.carousel-linked-nav {
+  width: 120px;
+  margin-bottom: 20px;
+}

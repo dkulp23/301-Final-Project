@@ -5,9 +5,8 @@ var pg = require('pg')
 
 var connectionString = process.env.DATABASE_URL
 
-app.post()
 // pg.defaults.ssl = true
-// pg.connect(process.env.DATABASE_URL, function(err, client) {
+// pg.connect(connectionString, function(err, client) {
 //   if(err) throw err
 //   console.log('Connected to postress! Getting schemas...')
 //
@@ -17,6 +16,26 @@ app.post()
 //       console.log(JSON.stringify(row))
 //     })
 // })
+
+app.get('/carriersDB', function(req, res) {
+  const client = new pg.Client(connectionString);
+
+  client.connect(function(err) {
+    if(err) {
+      console.error('Trouble connecting to postgres', err)
+    }
+    client.query(
+      'SELECT * FROM carrier_data',
+      function(err, result) {
+        if(err) {
+          console.error('Query failed', err)
+        }
+        res.json();
+        client.end();
+      }
+    )
+  })
+})
 
 app.use(express.static('./'))
 

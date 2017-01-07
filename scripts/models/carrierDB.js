@@ -26,19 +26,10 @@
   };
 // TODO finish grbbing the content from the form and matching it up to the data key
 
-  // Carrier.postData = function() {
-  //   $.post('/carriersDB',
-  //   data: {
-  //     name: $(this).parent.content();
-  //     number:
-  //     address:
-  //     city:
-  //     state:
-  //     zip:
-  //     email:
-  //   }
-  // )
-  // }
+  Carrier.postData = function(obj) {
+    $.post('/carriersDB', obj
+  )
+  }
     /* data: {
     name: //name from input field,
     address: //address from input field

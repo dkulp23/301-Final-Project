@@ -70,20 +70,24 @@
 
   <section id="registerCarrier" class="page-content">
     <form id="carrierInfo">
-      <label>Name:</label>
-      <input id="carrierName" type="text" placeholder="Full Name" required>
-      <label>Email:</label>
-      <input id="carrierEmail" type="text" placeholder="ABC@gmail.com" required>
-      <label>Address:</label>
-      <input id="carrierAddress" type="text" placeholder="123 Main St" required>
-      <label>Phone:</label>
-      <input id="carrierPhone" type="text" placeholder="(123)-456-7890" required>
+      <label for="name">Name:</label>
+      <input name="name" type="text" placeholder="Full Name" required>
+      <label for="number">Phone:</label>
+      <input name="number" type="text" placeholder="(123)-456-7890" required>
+      <label for="address">Address:</label>
+      <input name="address" type="text" placeholder="123 Main St" required>
+      <label for="city">City:</label>
+      <input name="city" type="text" placeholder="Seattle" required>
+      <label for="state">State:</label>
+      <input name="state" type="text" placeholder="WA" required>
+      <label for="zip">Zip:</label>
+      <input name="zip" type="text" placeholder="98101" required>
       <label>License Number:</label>
-      <input id="carrierLicense" type="text" placeholder="123-456-789" required>
-      <label>
-        <!-- TODO add submit functionality that takes form data and puts it into the DB  -->
-        <!-- <input type="button" id="registerButton" value="Send"> -->
-        <button type="submit" form="carrierInfo">Submit Info</button>
+      <input name="license" type="text" placeholder="123-456-789" required>
+      <label for="email">Email:</label>
+      <input name="email" type="text" placeholder="ABC@gmail.com" required>
+      <label for="submitButton">
+      <button type="submit" form="carrierInfo">Submit Info</button>
       </label>
     </form>
   </section>

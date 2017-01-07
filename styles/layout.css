@@ -59,12 +59,28 @@
   margin: 50px 130px 50px;
 }
 
+#mapInfo {
+  margin: 0;
+  padding: 50px;
+}
+
 li {
   font-size: 20px;
   margin-left: 130px;
   padding: 5px;
 }
 
-#registerButton {
+#zip {
+  margin: 0;
+  padding-top: 20px;
+}
 
+#zipButton {
+  font-family: 'Muli', sans-serif;
+  margin-left: 3px
+}
+
+#registerButton {
+  font-family: 'Muli', sans-serif;
+  margin-left: 3px
 }

@@ -1,4 +1,5 @@
 #nav-bar {
+  font-family: 'Muli', sans-serif;
   font-size: 14px;
   list-style-type: none;
   margin: 0;
@@ -10,10 +11,60 @@
 #nav-bar a {
   color: #F7F7FF;
   text-decoration: none;
+  padding: 15px;
 }
 
 #nav-bar a:hover {
   background-color: #BDD5EA;
   color: black;
-  padding: 3px;
+  padding: 10px;
+}
+
+#landingPage {
+  margin: 0;
+  padding: 50px;
+}
+
+#reportOD {
+  font-family: 'Muli', sans-serif;
+  background-color: #FE5F55;
+  color: #F7F7FF;
+  font-size: 20px;
+  margin: 50px 100px 50px;
+  height: 150px;
+  width: 150px;
+  border: solid 1px #FE5F55;
+  border-radius: 50%
+}
+
+#register {
+  font-family: 'Muli', sans-serif;
+  margin: 50px 50px 20px;
+  padding: 5px;
+}
+
+#yesReportOD {
+  font-family: 'Muli', sans-serif;
+  background-color: #FE5F55;
+  color: #F7F7FF;
+  font-size: 20px;
+  margin: 50px 250px 50px;
+  height: 150px;
+  width: 150px;
+  border: solid 1px #FE5F55;
+  border-radius: 50%
+}
+
+#informational h1 {
+  margin: 50px 130px 50px;
+}
+
+li {
+  font-size: 20px;
+  margin-left: 130px;
+  padding: 5px;
+}
+
+#registerButton {
+
 }

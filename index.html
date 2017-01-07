@@ -68,23 +68,23 @@
         <button id="yesReportOD">Yes I am witness to an OD and need to report</button>
   </section>
 
-      <section id="registerUser" class="page-content">
-        <form action="something" method="post">
-          <label>Name:</label>
-          <input id="carrierName" type="text" placeholder="Full Name" required>
-          <label>Email:</label>
-          <input id="carrierEmail" type="text" placeholder="ABC@gmail.com" required>
-          <label>Address:</label>
-          <input id="carrierAddress" type="text" placeholder="123 Main St" required>
-          <label>Phone:</label>
-          <input id="carrierPhone" type="integer" placeholder="(123)-456-7890" required>
-          <label>License Number:</label>
-          <input id="carrierLicense" type="integer" placeholder="123-456-789" required>
-          <label>
-            <!-- TODO add submit functionality that takes form data and puts it into the DB  -->
-            <input type="button" id="registerButton" value="Send">
-          </label>
-        </form>
+  <section id="registerUser" class="page-content">
+    <form action="something" method="post">
+      <label>Name:</label>
+      <input id="carrierName" type="text" placeholder="Full Name" required>
+      <label>Email:</label>
+      <input id="carrierEmail" type="text" placeholder="ABC@gmail.com" required>
+      <label>Address:</label>
+      <input id="carrierAddress" type="text" placeholder="123 Main St" required>
+      <label>Phone:</label>
+      <input id="carrierPhone" type="integer" placeholder="(123)-456-7890" required>
+      <label>License Number:</label>
+      <input id="carrierLicense" type="integer" placeholder="123-456-789" required>
+      <label>
+        <!-- TODO add submit functionality that takes form data and puts it into the DB  -->
+        <input type="button" id="registerButton" value="Send">
+      </label>
+    </form>
   </section>
 
   <section id="reportODMap" class="page-content">
@@ -102,7 +102,7 @@
   <script src="scripts/controllers/routes.js"></script>
   <script src="scripts/models/info.js"></script>
   <script src="scripts/models/map.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&libraries=places&callback=initMap" async defer></script>
   <script src="scripts/models/carrierDB.js"></script>
 
 </body>

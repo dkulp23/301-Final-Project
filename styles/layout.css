@@ -52,12 +52,13 @@
 }
 
 #informational h1 {
-  margin: 50px 140px 50px;
+  margin: 50px 130px 50px;
 }
 
 li {
   font-size: 20px;
-  margin-left: 150px;
+  margin-left: 130px;
+  padding: 5px;
 }
 
 #registerButton {

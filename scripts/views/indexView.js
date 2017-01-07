@@ -44,6 +44,7 @@
       event.preventDefault();
       $('.page-content').hide();
       $('#reportODMap').fadeIn(400);
+      $('#mapInfo').fadeIn(400);
     });
   }
   handleTheYesReportODButton();

@@ -51,19 +51,21 @@
   var handleInfoFormSubmit = function () {
     $('#carrierInfo').submit(function(event) {
       event.preventDefault();
+      var values = [ ];
+      $(this).find('input:text').each(function(index, ele) {
+        values.push($(ele).val());
+      })
       let myData = {
-        name: $(this).find('#carrierName').val(),
-        email: $(this).find('#carrierEmail').val(),
-        address: $(this).find('#carrierAddress').val(),
-        phone: $(this).find('#carrierPhone').val(),
-        license: $(this).find('#carrierLicense').val()
+        name: values[0],
+        number: values[1],
+        address: values[2],
+        city: values[3],
+        state: values[4],
+        zip: values[5],
+        email: values[6],
+        license: values[7]
       }
       console.log(myData)
-      //Carrier.postData(myData);
-      // $(this).find('input:text').each(function(index, ele) {
-      //   console.log($(ele).attr('name');
-      //   console.log($(ele).val());
-      // })
       // $.ajax {
       //       url: ./models/carrierDB.js,
       //       method: ‘POST’,

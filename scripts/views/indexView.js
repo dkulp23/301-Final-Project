@@ -51,8 +51,9 @@
   var handleInfoFormSubmit = function () {
     $('#carrierInfo').submit(function(event) {
       event.preventDefault();
-      $(this).find('input:text').each(function(){
-        console.log($(this).val());
+      $(this).find('input:text').each(function(index, ele){
+        console.log($(ele).attr('name'));
+        console.log($(ele).val());
       })
   // TODO reference the post method in carrierDB.js
     });

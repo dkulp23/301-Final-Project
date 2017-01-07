@@ -22,7 +22,7 @@
   <div id="nav-bar">
     <a href="" class="nav-item" data-content="landingPage">Home</a>
     <a href="" class="nav-item" data-content="informational">Information to Identify Overdoses</a>
-    <a href="" class="nav-item" data-content="registerUser">Register to Carry Narcan</a>
+    <a href="" class="nav-item" data-content="registerCarrier">Register to Carry Narcan</a>
   </div>
   <section id="landingPage" class="page-content">
     <h1>Best 301 Project EVER!!!</h1>
@@ -31,7 +31,7 @@
     <!-- TODO add event listener that displays the Informational page on click-->
     <button id="reportOD"class='button'>Report an OD</button>
     <h3>Call 911 if this is a matter of life and death</h3>
-    <!-- TODO redirect the user to the registerUser page -->
+    <!-- TODO redirect the user to the registerCarrier page -->
     <button id="register"class='button'>Click here to register as a Narcan Carrier</button>
   </section>
 
@@ -69,21 +69,26 @@
     <button id="yesReportOD">Yes I am witness to an OD and need to report</button>
   </section>
 
-  <section id="registerUser" class="page-content">
-    <form action="something" method="post">
-      <label>Name:</label>
-      <input id="carrierName" type="text" placeholder="Full Name" required>
-      <label>Email:</label>
-      <input id="carrierEmail" type="text" placeholder="ABC@gmail.com" required>
-      <label>Address:</label>
-      <input id="carrierAddress" type="text" placeholder="123 Main St" required>
-      <label>Phone:</label>
-      <input id="carrierPhone" type="integer" placeholder="(123)-456-7890" required>
+  <section id="registerCarrier" class="page-content">
+    <form id="carrierInfo">
+      <label for="name">Name:</label>
+      <input name="name" type="text" placeholder="Full Name" required>
+      <label for="number">Phone:</label>
+      <input name="number" type="text" placeholder="(123)-456-7890" required>
+      <label for="address">Address:</label>
+      <input name="address" type="text" placeholder="123 Main St" required>
+      <label for="city">City:</label>
+      <input name="city" type="text" placeholder="Seattle" required>
+      <label for="state">State:</label>
+      <input name="state" type="text" placeholder="WA" required>
+      <label for="zip">Zip:</label>
+      <input name="zip" type="text" placeholder="98101" required>
       <label>License Number:</label>
-      <input id="carrierLicense" type="integer" placeholder="123-456-789" required>
-      <label>
-        <!-- TODO add submit functionality that takes form data and puts it into the DB  -->
-        <input type="button" id="registerButton" value="Send">
+      <input name="license" type="text" placeholder="123-456-789" required>
+      <label for="email">Email:</label>
+      <input name="email" type="text" placeholder="ABC@gmail.com" required>
+      <label for="submitButton">
+      <button type="submit" form="carrierInfo">Submit Info</button>
       </label>
     </form>
   </section>
@@ -100,18 +105,17 @@
       <input type="button" id="zipButton" value="Send">
     </section>
 
-    <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
-    <script src="scripts/vendor/ajax.js"></script>
-    <script src="scripts/vendor/handlebars.js"></script>
-    <script src="scripts/vendor/bootstrap.js"></script>
-    <script src="scripts/models/index.js"></script>
-    <script src="scripts/views/indexView.js"></script>
-    <script src="scripts/controllers/routes.js"></script>
-    <script src="scripts/models/info.js"></script>
-    <script src="scripts/models/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&callback=initMap" async defer></script>
-    <script src="scripts/models/carrierDB.js"></script>
-
+  <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
+  <script src="scripts/vendor/ajax.js"></script>
+  <script src="scripts/vendor/handlebars.js"></script>
+  <script src="scripts/vendor/bootstrap.js"></script>
+  <script src="scripts/models/index.js"></script>
+  <script src="scripts/models/carrierDB.js"></script>
+  <script src="scripts/views/indexView.js"></script>
+  <script src="scripts/controllers/routes.js"></script>
+  <script src="scripts/models/info.js"></script>
+  <script src="scripts/models/map.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&callback=initMap" async defer></script>
   </body>
 
   </html>

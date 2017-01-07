@@ -2,6 +2,7 @@ var express = require('express')
 var port = process.env.PORT || 3000
 var app = express()
 var pg = require('pg')
+var bodyParser = require('body-parser').json()
 
 var connectionString = 'postgres://localhost:5432' || process.env.DATABASE_URL
 
@@ -25,7 +26,8 @@ app.get('/carriersDB', function(req, res) {
   })
 })
 
-app.post('/carriersDB', function(req, res){
+app.post('/carriersDB', bodyParser, function(req, res){
+  console.log(req.body);
   const client = new pg.Client(connectionString);
 
   client.connect(function(err){

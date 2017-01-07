@@ -34,7 +34,7 @@
     $('#register').on('click', function(event) {
       event.preventDefault();
       $('.page-content').hide();
-      $('#registerUser').fadeIn(400);
+      $('#registerCarrier').fadeIn(400);
     });
   }
   handleTheRegisterButton();
@@ -49,12 +49,32 @@
   }
   handleTheYesReportODButton();
 
-  // var handleTheRegisterButtonButton = function () {
-  //   $('#registerButton').on('click', function(event) {
-  //     event.preventDefault();
-  // // TODO reference the post method in carrierDB.js
-  //   });
-  // }
-  // handleTheRegisterButtonButton();
+  var handleInfoFormSubmit = function () {
+    $('#carrierInfo').submit(function(event) {
+      event.preventDefault();
+      var values = [ ];
+      $(this).find('input:text').each(function(index, ele) {
+        values.push($(ele).val());
+      })
+      let carrierData = {
+        name: values[0],
+        number: values[1],
+        address: values[2],
+        city: values[3],
+        state: values[4],
+        zip: values[5],
+        email: values[6],
+        license: values[7]
+      }
+      Carrier.postData(carrierData);
+      // $.ajax {
+      //       url: ./models/carrierDB.js,
+      //       method: ‘POST’,
+      //       })
+      //       .then(CarrierDB.post())
+  // TODO investigate the serialize method of jQuery for form data submission
+    });
+  }
+  handleInfoFormSubmit();
 
 })(window);

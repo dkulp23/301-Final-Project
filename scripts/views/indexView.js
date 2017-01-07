@@ -55,7 +55,7 @@
       $(this).find('input:text').each(function(index, ele) {
         values.push($(ele).val());
       })
-      let myData = {
+      let carrierData = {
         name: values[0],
         number: values[1],
         address: values[2],
@@ -65,14 +65,13 @@
         email: values[6],
         license: values[7]
       }
-      console.log(myData)
+      Carrier.postData(carrierData);
       // $.ajax {
       //       url: ./models/carrierDB.js,
       //       method: ‘POST’,
       //       })
       //       .then(CarrierDB.post())
-
-  // TODO reference the post method in carrierDB.js
+  // TODO investigate the serialize method of jQuery for form data submission
     });
   }
   handleInfoFormSubmit();

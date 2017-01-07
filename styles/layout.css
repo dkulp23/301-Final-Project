@@ -1,0 +1,19 @@
+#nav-bar {
+  font-size: 14px;
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  background-color: #495867;
+}
+
+#nav-bar a {
+  color: #F7F7FF;
+  text-decoration: none;
+}
+
+#nav-bar a:hover {
+  background-color: #BDD5EA;
+  color: black;
+  padding: 3px;
+}

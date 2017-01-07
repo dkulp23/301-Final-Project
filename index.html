@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles/module.css">
   <link rel="stylesheet" href="styles/state.css">
   <link rel="stylesheet" href="styles/theme.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
   <script id="registeredTemplate" type="text/x-handlebars-template">
     <article>
       <p id="registeredName">{{name}}</p>
@@ -36,25 +37,25 @@
 
   <section id="informational" class="page-content">
     <div id="infoCarousel" class="carousel slide">
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <div class="active item">
-        <img class="symptoms" src="assets/eyes.png">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div class="active item">
+          <img class="symptoms" src="assets/eyes.png">
+        </div>
+        <div class="item">
+          <img class="symptoms" src="assets/fingers.png">
+        </div>
+        <div class="item">
+          <img class="symptoms" src="assets/unresponsive.png">
+        </div>
+        <div class="item">
+          <img class="symptoms" src="assets/breathing.png">
+        </div>
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#infoCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#infoCarousel" data-slide="next">&rsaquo;</a>
     </div>
-    <div class="item">
-        <img class="symptoms" src="assets/fingers.png">
-    </div>
-    <div class="item">
-        <img class="symptoms" src="assets/unresponsive.png">
-    </div>
-    <div class="item">
-        <img class="symptoms" src="assets/breathing.png">
-    </div>
-  </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#infoCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#infoCarousel" data-slide="next">&rsaquo;</a>
-</div>
     <!-- TODO Use JS to switch between the array of images  -->
     <!--TODO Direct the user to the reportODMap section -->
     <h1>Is this an overdose? Signs include:</h1>
@@ -64,10 +65,9 @@
       <li>The center part of their eye is very small — sometimes called “pinpoint pupils”</li>
       <li>Their fingernails and lips turning blue or purple</li>
       <li>Slow heartbeat and/or low blood pressure</li>
-      </ul>
-        <button id="yesReportOD">Yes I am witness to an OD and need to report</button>
+    </ul>
+    <button id="yesReportOD">Yes I am witness to an OD and need to report</button>
   </section>
-
   <section id="registerCarrier" class="page-content">
     <form id="carrierInfo">
       <label for="name">Name:</label>
@@ -97,7 +97,14 @@
     <!-- <img src="http://donsmaps.com/images29/middleearthlargelargerstill.jpg"> -->
     <article id="receivingTemplate"></article>
   </section>
+  <section id="mapInfo" class="page-content">
+    <h2>Please refer to the map to contact nearby Narcan carriers, or enter enter your zip code below:</h2>
+    <form id="zip" method="post">
+      <input id="reportZip" type="text" placeholder="Enter your zip code">
+      <input type="button" id="zipButton" value="Send">
+    </section>
 
+<<<<<<< HEAD
   <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
   <script src="scripts/vendor/ajax.js"></script>
   <script src="scripts/vendor/handlebars.js"></script>
@@ -109,7 +116,20 @@
   <script src="scripts/models/info.js"></script>
   <script src="scripts/models/map.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&callback=initMap" async defer></script>
+=======
+    <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
+    <script src="scripts/vendor/ajax.js"></script>
+    <script src="scripts/vendor/handlebars.js"></script>
+    <script src="scripts/vendor/bootstrap.js"></script>
+    <script src="scripts/models/index.js"></script>
+    <script src="scripts/views/indexView.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
+    <script src="scripts/models/info.js"></script>
+    <script src="scripts/models/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&callback=initMap" async defer></script>
+    <script src="scripts/models/carrierDB.js"></script>
+>>>>>>> 7dbeae1b7d3697ff3f8ad7748733734350fb8e37
 
-</body>
+  </body>
 
-</html>
+  </html>

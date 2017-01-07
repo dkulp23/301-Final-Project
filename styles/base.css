@@ -24,3 +24,16 @@ section {
   height: 75%;
   width: 50%
 }
+
+/*a {
+  text-decoration:none;
+}*/
+
+footer {
+  color: #F7F7FF;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #495867;
+}

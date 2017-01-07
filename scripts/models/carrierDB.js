@@ -9,15 +9,43 @@
     this.state = obj.state;
     this.zip = obj.zip;
     this.email = obj.email;
+    Carrier.allCarriers.push(this);
   };
 
   Carrier.allCarriers = [ ];
 
   Carrier.getData = function() {
-    $.getJSON('/carriersDB', function(data) {
-      JSON.stringify(data);
+    $.getJSON("/carriersDB", function(data) {
+      console.log(data.rows, 'data');
+      data.rows.forEach(function(ele) {
+        var newCarrier = new Carrier(ele)
+        console.log(ele, 'ele');
+        console.log('getData function successful')
+      })
     });
   };
+// TODO finish grbbing the content from the form and matching it up to the data key
 
+  // Carrier.postData = function() {
+  //   $.post('/carriersDB',
+  //   data: {
+  //     name: $(this).parent.content();
+  //     number:
+  //     address:
+  //     city:
+  //     state:
+  //     zip:
+  //     email:
+  //   }
+  // )
+  // }
+    /* data: {
+    name: //name from input field,
+    address: //address from input field
+  }
+  */
+
+
+  Carrier.getData();
   module.Carrier = Carrier;
 })(window);

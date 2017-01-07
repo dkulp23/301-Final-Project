@@ -58,3 +58,14 @@ Page Scaffolding
   Map
     Ability to drop a pin
   List of carries that have agreed to share information
+
+
+
+  Styling Guide Start v1.0
+  Muted blue/grey background color (maithrika downloaded)
+Style ‘report an OD’ button for homepage, make big circle. Scalable.
+Font: Ariel 2
+Narcan button top right? nav bar link, no button
+Report OD on 2nd page, red button w/ white font
+Resize google map to fit page
+Links should be in navigation bar up top

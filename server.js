@@ -3,19 +3,7 @@ var port = process.env.PORT || 3000
 var app = express()
 var pg = require('pg')
 
-var connectionString = process.env.DATABASE_URL
-
-// pg.defaults.ssl = true
-// pg.connect(connectionString, function(err, client) {
-//   if(err) throw err
-//   console.log('Connected to postress! Getting schemas...')
-//
-//   client
-//     .query('SELECT table_schema, table_name FROM information_schema.tables')
-//     .on('row', function(row) {
-//       console.log(JSON.stringify(row))
-//     })
-// })
+var connectionString = 'postgres://localhost:5432' || process.env.DATABASE_URL
 
 app.get('/carriersDB', function(req, res) {
   const client = new pg.Client(connectionString);
@@ -30,11 +18,28 @@ app.get('/carriersDB', function(req, res) {
         if(err) {
           console.error('Query failed', err)
         }
-        res.json();
+        res.json(result);
         client.end();
       }
     )
   })
+})
+
+app.post('/carriersDB', function(req, res){
+  const client = new pg.Client(connectionString);
+
+  client.connect(function(err){
+    if(err) console.error('Trouble connecting to postgres', err)
+
+  client.query(
+    'INSERT INTO carrier_data (name, number, address, city, state, zip, email)',
+    [req.body.name, req.body.number, req.body.address, req.body.city, req.body.city, req.body.state, req.body.zip, req.body.email],
+    function(err) {
+      if(err) console.error('Error running query', err);
+      client.end();
+    })
+})
+res.send('Post complete')
 })
 
 app.use(express.static('./'))

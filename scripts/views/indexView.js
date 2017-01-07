@@ -34,7 +34,7 @@
     $('#register').on('click', function(event) {
       event.preventDefault();
       $('.page-content').hide();
-      $('#registerUser').fadeIn(400);
+      $('#registerCarrier').fadeIn(400);
     });
   }
   handleTheRegisterButton();
@@ -48,12 +48,15 @@
   }
   handleTheYesReportODButton();
 
-  // var handleTheRegisterButtonButton = function () {
-  //   $('#registerButton').on('click', function(event) {
-  //     event.preventDefault();
-  // // TODO reference the post method in carrierDB.js
-  //   });
-  // }
-  // handleTheRegisterButtonButton();
+  var handleInfoFormSubmit = function () {
+    $('#carrierInfo').submit(function(event) {
+      event.preventDefault();
+      $(this).find('input:text').each(function(){
+        console.log($(this).val());
+      })
+  // TODO reference the post method in carrierDB.js
+    });
+  }
+  handleInfoFormSubmit();
 
 })(window);

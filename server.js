@@ -2,7 +2,9 @@ var express = require('express')
 var port = process.env.PORT || 3000
 var app = express()
 var pg = require('pg')
-var bodyParser = require('body-parser').json()
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({extended: true}))
 
 var connectionString = 'postgres://localhost:5432' || process.env.DATABASE_URL
 

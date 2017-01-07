@@ -54,6 +54,8 @@
   // // TODO reference the post method in carrierDB.js
   //   });
   // }
+  //TODO: when submit/register button is clicked and all form inputs
+  //are validated, fade in the #confirmRegistration section of index.html
   // handleTheRegisterButtonButton();
 
 })(window);

@@ -27,20 +27,12 @@
 // TODO finish grbbing the content from the form and matching it up to the data key
 
   Carrier.postData = function(obj) {
-    console.log(obj);
     $.ajax({
       url: '/carriersDB',
       method: 'POST',
       data: obj
     });
   };
-    /* data: {
-    name: //name from input field,
-    address: //address from input field
-  }
-  */
-
-
   // TODO: MOVE this function call to the one of the VIEW files Carrier.getData();
   module.Carrier = Carrier;
 })(window);

@@ -86,6 +86,7 @@ function initMap(pos) {
 function renderMap() {
   $('#yesReportOD').on('click', function() {
     initMap();
+    mapView.carrierPins();
   });
 }
 

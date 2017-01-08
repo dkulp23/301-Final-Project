@@ -12,27 +12,16 @@ function initMap(pos) {
     position: pos,
     map: map
   });
+
   var infoWindow = new google.maps.InfoWindow(
     {
       content: 'You are here'
     }
   );
+
   marker.addListener('click', function() {
     infoWindow.open(map, marker);
   });
-
-  // function writeAddressName(pos) {
-  //   var geocoder = new google.maps.Geocoder();
-  //   geocoder.geocode({
-  //     'location': pos
-  //   },
-  //   function(results, status) {
-  //     if (status == google.maps.GeocoderStatus.OK)
-  //       infoWindow.setContent(results[0].formatted_address);
-  //     else
-  //       infoWindow.setContent('Unable to retrieve your address');
-  //   });
-  // }
 
   // var getAddress = function(pos){
   //   var geocoder = new google.maps.Geocoder();
@@ -49,7 +38,8 @@ function initMap(pos) {
   //     }
   //   });
   // };
-  // console.log(getAddress());
+
+  // var address = getAddress({lat: 47.611435, lng: -122.330456});
 
   if (navigator.geolocation)
   {
@@ -70,12 +60,31 @@ function initMap(pos) {
         strokeColor: '#0000FF',
         strokeOpacity: 0.3
       });
-      marker.setPosition(pos || map.getCenter());
+
+      var address = function(pos){
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+          'location': pos
+        },
+        function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            console.log(results[0].formatted_address);
+            return results[0].formatted_address;
+          }
+          else {
+            return 'Unable to retrieve your address';
+          }
+        });
+      };
+
+      marker.setPosition(pos);
       map.fitBounds(circle.getBounds());
+      console.log(pos);
+      console.log(address(pos));
+      infoWindow.setContent(address(pos));
     },
     function() {
       handleLocationError(true, infoWindow, map.getCenter());
-      // writeAddressName(pos);
     });
   }
   else {

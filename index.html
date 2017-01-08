@@ -29,7 +29,7 @@
 
     <h3>This is an educational project and should not be used in lieu of real medical assistance</h3>
     <!-- TODO add event listener that displays the Informational page on click-->
-    <button id="reportOD"class='button'>Report an OD</button>
+    <button id="reportOD"class='button'>Report an Overdose</button>
     <h3>Call 911 if this is a matter of life and death</h3>
     <!-- TODO redirect the user to the registerCarrier page -->
     <button id="register"class='button'>Click here to register as a Narcan Carrier</button>
@@ -66,8 +66,9 @@
       <li>Their fingernails and lips turning blue or purple</li>
       <li>Slow heartbeat and/or low blood pressure</li>
     </ul>
-    <button id="yesReportOD">Yes I am witness to an OD and need to report</button>
+    <button id="yesReportOD">Yes I am witnessing an OD and need to report</button>
   </section>
+
   <section id="registerCarrier" class="page-content">
     <form id="carrierInfo">
       <label for="name">Name:</label>
@@ -120,7 +121,6 @@
   <script src="scripts/controllers/routes.js"></script>
   <script src="scripts/models/info.js"></script>
   <script src="scripts/models/map.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&callback=initMap" async defer></script>
-  </body>
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&libraries=places&callback=initMap" async defer></script>
+</body>
   </html>

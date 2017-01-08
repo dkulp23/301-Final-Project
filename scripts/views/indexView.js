@@ -34,7 +34,7 @@
     $('#register').on('click', function(event) {
       event.preventDefault();
       $('.page-content').hide();
-      $('#registerUser').fadeIn(400);
+      $('#registerCarrier').fadeIn(400);
     });
   }
   handleTheRegisterButton();
@@ -44,9 +44,11 @@
       event.preventDefault();
       $('.page-content').hide();
       $('#reportODMap').fadeIn(400);
+      $('#mapInfo').fadeIn(400);
     });
   }
   handleTheYesReportODButton();
+
 
   // var handleTheRegisterButtonButton = function () {
   //   $('#registerButton').on('click', function(event) {
@@ -54,6 +56,29 @@
   // // TODO reference the post method in carrierDB.js
   //   });
   // }
+  //TODO: when submit/register button is clicked and all form inputs
+  //are validated, fade in the #confirmRegistration section of index.html
   // handleTheRegisterButtonButton();
+
+  var handleInfoFormSubmit = function () {
+    $('#carrierInfo').submit(function(event) {
+      event.preventDefault();
+      var carrierData = {
+        name: $(this).find('#name').val(),
+        number: parseInt($(this).find('#number').val()),
+        address: $(this).find('#address').val(),
+        city: $(this).find('#city').val(),
+        state: $(this).find('#state').val(),
+        zip: parseInt($(this).find('#zip').val()),
+        email: $(this).find('#email').val(),
+        // license: $(this).find('#license').val()
+      }
+      console.log(carrierData);
+      Carrier.postData(carrierData);
+  // TODO investigate the serialize method of jQuery for form data submission
+  });
+  }
+  handleInfoFormSubmit();
+
 
 })(window);

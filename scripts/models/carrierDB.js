@@ -15,37 +15,24 @@
   Carrier.allCarriers = [ ];
 
   Carrier.getData = function() {
-    $.getJSON("/carriersDB", function(data) {
+    $.getJSON('/carriersDB', function(data) {
       console.log(data.rows, 'data');
       data.rows.forEach(function(ele) {
-        var newCarrier = new Carrier(ele)
+        var newCarrier = new Carrier(ele);
         console.log(ele, 'ele');
-        console.log('getData function successful')
-      })
+        console.log('getData function successful');
+      });
     });
   };
 // TODO finish grbbing the content from the form and matching it up to the data key
 
-  // Carrier.postData = function() {
-  //   $.post('/carriersDB',
-  //   data: {
-  //     name: $(this).parent.content();
-  //     number:
-  //     address:
-  //     city:
-  //     state:
-  //     zip:
-  //     email:
-  //   }
-  // )
-  // }
-    /* data: {
-    name: //name from input field,
-    address: //address from input field
-  }
-  */
-
-
-  Carrier.getData();
+  Carrier.postData = function(obj) {
+    $.ajax({
+      url: '/carriersDB',
+      method: 'POST',
+      data: obj
+    });
+  };
+  // TODO: MOVE this function call to the one of the VIEW files Carrier.getData();
   module.Carrier = Carrier;
 })(window);

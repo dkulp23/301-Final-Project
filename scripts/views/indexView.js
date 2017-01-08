@@ -49,6 +49,17 @@
   }
   handleTheYesReportODButton();
 
+
+  // var handleTheRegisterButtonButton = function () {
+  //   $('#registerButton').on('click', function(event) {
+  //     event.preventDefault();
+  // // TODO reference the post method in carrierDB.js
+  //   });
+  // }
+  //TODO: when submit/register button is clicked and all form inputs
+  //are validated, fade in the #confirmRegistration section of index.html
+  // handleTheRegisterButtonButton();
+
   var handleInfoFormSubmit = function () {
     $('#carrierInfo').submit(function(event) {
       event.preventDefault();
@@ -76,5 +87,6 @@
     });
   }
   handleInfoFormSubmit();
+
 
 })(window);

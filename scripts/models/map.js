@@ -23,26 +23,9 @@ function initMap(pos) {
     infoWindow.open(map, marker);
   });
 
-  // var getAddress = function(pos){
-  //   var geocoder = new google.maps.Geocoder();
-  //   geocoder.geocode({
-  //     'location': pos
-  //   },
-  //   function(results, status) {
-  //     if (status == google.maps.GeocoderStatus.OK) {
-  //       console.log(results[0].formatted_address);
-  //       return results[0].formatted_address;
-  //     }
-  //     else {
-  //       return 'Unable to retrieve your address';
-  //     }
-  //   });
-  // };
-
-  // var address = getAddress({lat: 47.611435, lng: -122.330456});
-
   if (navigator.geolocation)
   {
+    console.log(pos);
     // var positionOptions = {
     //   enableHighAccuracy: true
     // };
@@ -51,6 +34,7 @@ function initMap(pos) {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+      console.log(pos);
       var circle = new google.maps.Circle({
         center: pos,
         radius: position.coords.accuracy,
@@ -69,6 +53,8 @@ function initMap(pos) {
         function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             console.log(results[0].formatted_address);
+            map.fitBounds(circle.getBounds());
+            marker.setPosition(pos);
             infoWindow.setContent(results[0].formatted_address);
           }
           else {
@@ -76,10 +62,9 @@ function initMap(pos) {
           }
         });
       };
-
-      marker.setPosition(pos);
-      map.fitBounds(circle.getBounds());
-      console.log(address(pos));
+      console.log(pos);
+      address(pos);
+      // console.log(address(pos));
     },
     function() {
       handleLocationError(true, infoWindow, map.getCenter());

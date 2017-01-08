@@ -37,7 +37,7 @@ app.post('/carriersDB', bodyParser.json(), function(req, res){
 
   client.query(
     'INSERT INTO carrier_data (name, number, address, city, state, zip, email) VALUES($1, $2, $3, $4, $5, $6, $7)',
-    [req.body.name, req.body.number, req.body.address, req.body.city, req.body.city, req.body.state, req.body.zip, req.body.email],
+    [req.body.name, req.body.number, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.email],
     function(err) {
       if(err) console.error('Error running query', err);
       client.end();

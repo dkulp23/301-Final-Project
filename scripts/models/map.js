@@ -69,7 +69,7 @@ function initMap(pos) {
         function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             console.log(results[0].formatted_address);
-            return results[0].formatted_address;
+            infoWindow.setContent(results[0].formatted_address);
           }
           else {
             return 'Unable to retrieve your address';
@@ -79,9 +79,7 @@ function initMap(pos) {
 
       marker.setPosition(pos);
       map.fitBounds(circle.getBounds());
-      console.log(pos);
       console.log(address(pos));
-      infoWindow.setContent(address(pos));
     },
     function() {
       handleLocationError(true, infoWindow, map.getCenter());

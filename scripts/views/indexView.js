@@ -63,28 +63,20 @@
   var handleInfoFormSubmit = function () {
     $('#carrierInfo').submit(function(event) {
       event.preventDefault();
-      var values = [ ];
-      $(this).find('input:text').each(function(index, ele) {
-        values.push($(ele).val());
-      })
-      let carrierData = {
-        name: values[0],
-        number: values[1],
-        address: values[2],
-        city: values[3],
-        state: values[4],
-        zip: values[5],
-        email: values[6],
-        license: values[7]
+      var carrierData = {
+        name: $(this).find('#name').val(),
+        number: parseInt($(this).find('#number').val()),
+        address: $(this).find('#address').val(),
+        city: $(this).find('#city').val(),
+        state: $(this).find('#state').val(),
+        zip: parseInt($(this).find('#zip').val()),
+        email: $(this).find('#email').val(),
+        // license: $(this).find('#license').val()
       }
+      console.log(carrierData);
       Carrier.postData(carrierData);
-      // $.ajax {
-      //       url: ./models/carrierDB.js,
-      //       method: ‘POST’,
-      //       })
-      //       .then(CarrierDB.post())
   // TODO investigate the serialize method of jQuery for form data submission
-    });
+  });
   }
   handleInfoFormSubmit();
 

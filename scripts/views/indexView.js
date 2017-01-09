@@ -43,7 +43,7 @@
     $('#yesReportOD').on('click', function(event) {
       event.preventDefault();
       $('.page-content').hide();
-      $('#reportODMap').fadeIn(400);
+      $('#mapSection').fadeIn(400);
       $('#mapInfo').fadeIn(400);
     });
   }

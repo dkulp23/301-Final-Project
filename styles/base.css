@@ -21,10 +21,15 @@ section {
   padding: 1.25em;
 }
 
-#reportODMap {
- height: 75%;
- width: 50%;
+#mapSection {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
 
+#reportODMap {
+ height: 50%;
+ width: 75%;
 }
 
 footer {

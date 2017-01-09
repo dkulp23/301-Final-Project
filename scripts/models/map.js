@@ -17,51 +17,56 @@ function initMap(pos) {
     {content: 'You are here'}
   );
 
-  //////////////
-  var input = document.getElementById('pac-input');
+  var markers = [];
+  console.log('First markers: ' + markers);
+
+  marker.addListener('click', function() {
+    infoWindow.open(map, marker);
+  });
+
+
+/////////////////////////////////////////// search box ///////////////////////////////////////////
+  var input = document.getElementById('map-input');
+  console.log('input: ' + input);
+
   var searchBox = new google.maps.places.SearchBox(input);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  console.log('searchBox: ' + searchBox);
+
+  // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
   map.addListener('bounds_changed', function() {
     searchBox.setBounds(map.getBounds());
   });
 
-  var markers = [];
-
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
+    console.log('places: ' + places);
     if (places.length == 0) {
       return;
     }
-    markers.forEach(function(marker) {
-      marker.setMap(null);
-    });
+
+    // markers.forEach(function(marker) {
+    //   marker.setMap(null);
+    // });
     markers = [];
+    console.log('Second markers: ' + markers);
 
     var bounds = new google.maps.LatLngBounds();
+    console.log('bounds' + bounds);
     places.forEach(function(place) {
+      console.log(place);
       if (!place.geometry) {
         console.log('Returned place contains no geometry');
         return;
       }
-      var icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
-      };
 
       // Create a marker for each place.
       markers.push(new google.maps.Marker({
         map: map,
-        icon: icon,
         title: place.name,
         position: place.geometry.location
       }));
-
       if (place.geometry.viewport) {
-        // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
       } else {
         bounds.extend(place.geometry.location);
@@ -69,15 +74,12 @@ function initMap(pos) {
     });
     map.fitBounds(bounds);
   });
- ////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
-  marker.addListener('click', function() {
-    infoWindow.open(map, marker);
-  });
-
+/////////////////////////////////////////// geolocation ///////////////////////////////////////////
   if (navigator.geolocation)
   {
-    console.log(pos);
+    // console.log(pos);
     // var positionOptions = {
     //   enableHighAccuracy: true
     // };
@@ -86,7 +88,7 @@ function initMap(pos) {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      console.log(pos);
+      // console.log(pos);
       var circle = new google.maps.Circle({
         center: pos,
         radius: position.coords.accuracy,
@@ -116,7 +118,6 @@ function initMap(pos) {
       };
       console.log(pos);
       address(pos);
-      // console.log(address(pos));
     },
     function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -134,6 +135,7 @@ function initMap(pos) {
     infoWindow.open(map, marker);
   }
 };
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 function renderMap() {
   $('#yesReportOD').on('click', function() {

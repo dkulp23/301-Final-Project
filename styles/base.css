@@ -23,13 +23,16 @@ section {
 
 #mapSection {
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+  height: inherit;
+  width: inherit;
 }
 
 #reportODMap {
- height: 50%;
- width: 75%;
+ min-height: 90%;
+ min-width: 90%;
+ margin: 0;
+ padding: 0;
+ position: absolute;
 }
 
 footer {

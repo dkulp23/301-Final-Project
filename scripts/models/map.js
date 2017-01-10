@@ -10,7 +10,8 @@ function initMap(pos) {
 
   var marker = new google.maps.Marker({
     position: pos,
-    map: map
+    map: map,
+    draggable: true
   });
 
   var infoWindow = new google.maps.InfoWindow(
@@ -46,9 +47,11 @@ function initMap(pos) {
     }
 
     // markers.forEach(function(marker) {
+    ///// this removes markers
     //   marker.setMap(null);
     // });
-    markers = [];
+    // markers = [];
+    markers.length = 0;
     console.log('Second markers: ' + markers);
 
     var bounds = new google.maps.LatLngBounds();
@@ -84,13 +87,14 @@ function initMap(pos) {
     //   enableHighAccuracy: true
     // };
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
+      var latLng = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      // console.log(pos);
+      // console.log(latLng);
+
       var circle = new google.maps.Circle({
-        center: pos,
+        center: null,
         radius: position.coords.accuracy,
         map: map,
         fillColor: '#0000FF',
@@ -99,7 +103,11 @@ function initMap(pos) {
         strokeOpacity: 0.3
       });
 
-      var address = function(pos){
+      var setCircle = function(pos) {
+        circle.setCenter(pos);
+      };
+
+      var address = function(pos) {
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({
           'location': pos
@@ -107,8 +115,9 @@ function initMap(pos) {
         function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             console.log(results[0].formatted_address);
-            map.fitBounds(circle.getBounds());
             marker.setPosition(pos);
+            setCircle(pos);
+            map.fitBounds(circle.getBounds());
             infoWindow.setContent(results[0].formatted_address);
           }
           else {
@@ -116,8 +125,20 @@ function initMap(pos) {
           }
         });
       };
-      console.log(pos);
-      address(pos);
+      console.log(latLng);
+      address(latLng);
+
+      google.maps.event.addListener(marker, 'dragend', function(evt) {
+        var newLat = this.getPosition().lat();
+        var newLng = this.getPosition().lng();
+        var newPos = {
+          lat: newLat,
+          lng: newLng
+        };
+        console.log(newPos);
+        address(newPos);
+      });
+
     },
     function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -134,6 +155,8 @@ function initMap(pos) {
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
   }
+
+
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

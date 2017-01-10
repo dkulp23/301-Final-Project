@@ -34,5 +34,11 @@
     });
   };
   // TODO: MOVE this function call to the one of the VIEW files Carrier.getData();
+  Carrier.getEmails = function() {
+    Carrier.allCarriers.map(function(obj){
+      console.log(obj.email);
+    });
+  }
+  Carrier.getEmails();
   module.Carrier = Carrier;
 })(window);

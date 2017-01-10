@@ -81,12 +81,12 @@ function initMap(pos) {
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
   }
+  mapView.carrierPins();
 };
 
 function renderMap() {
   $('#yesReportOD').on('click', function() {
     initMap();
-    mapView.carrierPins();
   });
 }
 

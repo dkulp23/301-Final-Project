@@ -8,19 +8,17 @@ mapView.getCarrierInfo = function() {
 
 mapView.carrierPins = function() {
   Carrier.allCarriers.forEach(function(ele) {
-    console.log('inside for each', ele);
-    var geocoder = new google.maps.Geocoder()
-    var map = map
-    function carrierPin() {
-      var address = ele.address + ' ' + ele.zip
-      console.log('address: ', address)
+    var geocoder = new google.maps.Geocoder();
+    var map = map;
+    (function carrierPin() {
+      var address = ele.address
       geocoder.geocode({
-        'address': address
+        address: address
       },
       function(res, status) {
-        console.log('res: ' , res[0].geometry.location)
+        console.log('res: ' , res)
         console.log('status: ' , status);
-        if (status === 'OK') {
+        if (status == 'OK') {
           var marker = new google.maps.Marker({
             map: map,
             position: res[0].geometry.location
@@ -30,8 +28,7 @@ mapView.carrierPins = function() {
         }
       }
       );
-    }
-    carrierPin()
+    })()
   })
 }
   //   var carrierInfo = {

@@ -43,22 +43,11 @@
     $('#yesReportOD').on('click', function(event) {
       event.preventDefault();
       $('.page-content').hide();
-      $('#reportODMap').fadeIn(400);
+      $('#mapSection').fadeIn(400);
       $('#mapInfo').fadeIn(400);
     });
   }
   handleTheYesReportODButton();
-
-
-  // var handleTheRegisterButtonButton = function () {
-  //   $('#registerButton').on('click', function(event) {
-  //     event.preventDefault();
-  // // TODO reference the post method in carrierDB.js
-  //   });
-  // }
-  //TODO: when submit/register button is clicked and all form inputs
-  //are validated, fade in the #confirmRegistration section of index.html
-  // handleTheRegisterButtonButton();
 
   var handleInfoFormSubmit = function () {
     $('#carrierInfo').submit(function(event) {
@@ -70,15 +59,17 @@
         city: $(this).find('#city').val(),
         state: $(this).find('#state').val(),
         zip: parseInt($(this).find('#zip').val()),
-        email: $(this).find('#email').val(),
-        // license: $(this).find('#license').val()
+        email: $(this).find('#email').val()
       }
       console.log(carrierData);
       Carrier.postData(carrierData);
-  // TODO investigate the serialize method of jQuery for form data submission
-  });
+      $('.page-content').hide();
+      $('#confirmRegistration').fadeIn(500);
+      // TODO investigate the serialize method of jQuery for form data submission
+      //TODO figure out how to clear form fields upon submission
+      //TODO ensure that form entries are posting to DB properly
+    });
   }
   handleInfoFormSubmit();
-
 
 })(window);

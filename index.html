@@ -29,10 +29,10 @@
 
     <h3>This is an educational project and should not be used in lieu of real medical assistance</h3>
     <!-- TODO add event listener that displays the Informational page on click-->
-    <button id="reportOD"class='button'>Report an Overdose</button>
+    <button id="reportOD" class='button'>Report an Overdose</button>
     <h3>Call 911 if this is a matter of life and death</h3>
     <!-- TODO redirect the user to the registerCarrier page -->
-    <button id="register"class='button'>Click here to register as a Narcan Carrier</button>
+    <button id="register" class='button'>Click here to register as a Narcan Carrier</button>
   </section>
 
   <section id="informational" class="page-content">
@@ -72,23 +72,75 @@
   <section id="registerCarrier" class="page-content">
     <form id="carrierInfo">
       <label for="name">Name:</label>
-      <input id="name" type="text" placeholder="Full Name" required>
+      <input id="name" pattern="^[a-zA-Z ]+$" type="text" placeholder="Full Name" required>
       <label for="number">Phone:</label>
-      <input id="number" type="text" placeholder="1234567890" required>
+      <input id="number" pattern="^\d{10}$" type="text" placeholder="1234567890" required>
       <label for="address">Address:</label>
-      <input id="address" type="text" placeholder="123 Main St" required>
+      <input id="address" pattern="^[a-zA-z0-9#,. ]+$" type="text" placeholder="123 Main St" required>
       <label for="city">City:</label>
-      <input id="city" type="text" placeholder="Seattle" required>
+      <input id="city" pattern="^[a-zA-Z. ]+$" type="text" placeholder="Seattle" required>
       <label for="state">State:</label>
-      <input id="state" type="text" placeholder="WA" required>
+      <select id="state" name="stateList" form="carrierInfo" required>
+        <option value="">Select a State</option>
+        <option value="AL">AL</option>
+        <option value="AK">AK</option>
+        <option value="AZ">AZ</option>
+        <option value="AR">AR</option>
+        <option value="CA">CA</option>
+        <option value="CO">CO</option>
+        <option value="CT">CT</option>
+        <option value="DE">DE</option>
+        <option value="FL">FL</option>
+        <option value="GA">GA</option>
+        <option value="HI">HI</option>
+        <option value="ID">ID</option>
+        <option value="IL">IL</option>
+        <option value="IN">IN</option>
+        <option value="IA">IA</option>
+        <option value="KS">KS</option>
+        <option value="KY">KY</option>
+        <option value="LA">LA</option>
+        <option value="ME">ME</option>
+        <option value="MD">MD</option>
+        <option value="MA">MA</option>
+        <option value="MI">MI</option>
+        <option value="MN">MN</option>
+        <option value="MS">MS</option>
+        <option value="MO">MO</option>
+        <option value="MT">MT</option>
+        <option value="NE">NE</option>
+        <option value="NV">NV</option>
+        <option value="NH">NH</option>
+        <option value="NJ">NJ</option>
+        <option value="NM">NM</option>
+        <option value="NY">NY</option>
+        <option value="NC">NC</option>
+        <option value="ND">ND</option>
+        <option value="OH">OH</option>
+        <option value="OK">OK</option>
+        <option value="OR">OR</option>
+        <option value="PA">PA</option>
+        <option value="RI">RI</option>
+        <option value="SC">SC</option>
+        <option value="SD">SD</option>
+        <option value="TN">TN</option>
+        <option value="TX">TX</option>
+        <option value="UT">UT</option>
+        <option value="VT">VT</option>
+        <option value="VA">VA</option>
+        <option value="WA">WA</option>
+        <option value="WV">WV</option>
+        <option value="WI">WI</option>
+        <option value="WY">WY</option>
+      </select>
       <label for="zip">Zip:</label>
-      <input id="zip" type="text" placeholder="98101" required>
-      <label>License Number:</label>
-      <input id="license" type="text" placeholder="123-456-789" required>
+      <input id="zip" pattern="^\d{5}$" type="text" placeholder="98101" required>
+      <!-- <label>License Number:</label>
+      <input id="license" pattern="" type="text" placeholder="123-456-789" required> -->
       <label for="email">Email:</label>
-      <input id="email" type="text" placeholder="ABC@gmail.com" required>
+      <input id="email" type="email" placeholder="ABC@gmail.com" required>
       <label for="submitButton">
-      <button type="submit" form="carrierInfo" id="carrierInfoButton">Submit Info</button>
+      <button id="formSubmitButton" type="submit" form="carrierInfo">Submit Info</button>
       </label>
     </form>
   </section>
@@ -99,17 +151,22 @@
     <p>You now have the power to potentially save a life. Should an overdose occur in your area, we will alert you immediately.</p>
   </section>
 
-  <section id="reportODMap" class="page-content">
+  <section id="mapSection" class="page-content">
+    <!-- <div class="controls"> -->
+    <div id="search-box"><input id="map-input" class="controls" type="text" placeholder="Search for an address or landmark"></div>
+    <!-- </div> -->
+    <div id="reportODMap"></div>
     <!-- TODO Add the google maps interaction here -->
     <!-- <img src="http://donsmaps.com/images29/middleearthlargelargerstill.jpg"> -->
+    <div id="carrierList"></div>
     <article id="receivingTemplate"></article>
   </section>
-  <section id="mapInfo" class="page-content">
+  <!-- <section id="mapInfo" class="page-content">
     <h2>Please refer to the map to contact nearby Narcan carriers, or enter enter your zip code below:</h2>
     <form id="zip" method="post">
       <input id="reportZip" type="text" placeholder="Enter your zip code">
       <input type="button" id="zipButton" value="Send">
-    </section>
+  </section> -->
 
   <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
   <script src="scripts/vendor/ajax.js"></script>
@@ -126,5 +183,6 @@
   <script src="scripts/models/info.js"></script>
   <script src="scripts/models/map.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&libraries=places&callback=initMap" async defer></script>
+  <script src="scripts/views/mapView.js"></script>
 </body>
   </html>

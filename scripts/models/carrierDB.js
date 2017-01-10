@@ -15,7 +15,8 @@
   Carrier.allCarriers = [ ];
 
   Carrier.getData = function() {
-    $.getJSON('/carriersDB', function(data) {
+    $.getJSON('/carriersDB')
+    .then(function(data) {
       data.rows.forEach(function(ele) {
         var newCarrier = new Carrier(ele);
       });

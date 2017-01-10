@@ -7,7 +7,7 @@ mapView.getCarrierInfo = function() {
 }
 
 mapView.carrierPins = function() {
-  Carrier.allCarriers.forEach(function(ele) {
+  async.each(Carrier.allCarriers, function(ele) {
     var geocoder = new google.maps.Geocoder();
     var map = map;
     (function carrierPin() {

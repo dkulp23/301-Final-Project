@@ -3,6 +3,7 @@ var port = process.env.PORT || 3000
 var app = express()
 var pg = require('pg')
 var bodyParser = require('body-parser')
+var asyncEach = require('async/each')
 
 app.use(bodyParser.urlencoded({extended: true}))
 

@@ -2,10 +2,12 @@
 
 function initMap(pos) {
 
+  $('#map-input').val('');
+
   var map = new google.maps.Map(document.getElementById('reportODMap'), {
     center: pos || {lat: 47.611435, lng: -122.330456},
     zoom: 10,
-    styles: [{'featureType':'administrative','elementType':'labels.text.fill','stylers':[{'color':'#444444'}]},{'featureType':'landscape','elementType':'all','stylers':[{'color':'#f2f2f2'}]},{'featureType':'landscape.man_made','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#eae9ed'}]},{'featureType':'landscape.natural','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'landscape.natural.landcover','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'landscape.natural.terrain','elementType':'geometry','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'poi','elementType':'all','stylers':[{'visibility':'off'}]},{'featureType':'poi.park','elementType':'geometry.fill','stylers':[{'visibility':'on'}]},{'featureType':'road','elementType':'all','stylers':[{'saturation':-100},{'lightness':45}]},{'featureType':'road','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#ffffff'}]},{'featureType':'road','elementType':'geometry.stroke','stylers':[{'visibility':'off'}]},{'featureType':'road','elementType':'labels.text.stroke','stylers':[{'visibility':'off'}]},{'featureType':'road.highway','elementType':'all','stylers':[{'visibility':'simplified'}]},{'featureType':'road.arterial','elementType':'labels.icon','stylers':[{'visibility':'off'}]},{'featureType':'transit','elementType':'all','stylers':[{'visibility':'off'}]},{'featureType':'water','elementType':'all','stylers':[{'color':'#b3dced'},{'visibility':'on'}]}]
+    styles: [{'featureType':'administrative','elementType':'labels.text.fill','stylers':[{'color':'#444444'}]},{'featureType':'landscape','elementType':'all','stylers':[{'color':'#f2f2f2'}]},{'featureType':'landscape.man_made','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#eae9ed'}]},{'featureType':'landscape.natural','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'landscape.natural.landcover','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'landscape.natural.terrain','elementType':'geometry','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'poi','elementType':'all','stylers':[{'visibility':'on'}]},{'featureType':'poi.park','elementType':'geometry.fill','stylers':[{'visibility':'on'}]},{'featureType':'road','elementType':'all','stylers':[{'saturation':-100},{'lightness':45}]},{'featureType':'road','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#ffffff'}]},{'featureType':'road','elementType':'geometry.stroke','stylers':[{'visibility':'off'}]},{'featureType':'road','elementType':'labels.text.stroke','stylers':[{'visibility':'off'}]},{'featureType':'road.highway','elementType':'all','stylers':[{'visibility':'simplified'}]},{'featureType':'road.arterial','elementType':'labels.icon','stylers':[{'visibility':'off'}]},{'featureType':'transit','elementType':'all','stylers':[{'visibility':'off'}]},{'featureType':'water','elementType':'all','stylers':[{'color':'#b3dced'},{'visibility':'on'}]}]
   });
 
   var marker = new google.maps.Marker({
@@ -30,8 +32,9 @@ function initMap(pos) {
 
   var input = document.getElementById('map-input');
   var searchBox = new google.maps.places.SearchBox(input);
+
 //// WHY ISN'T THIS WORKING
-  // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  // map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
 
   marker.addListener('click', function() {
     infoWindow.open(map, marker);
@@ -50,7 +53,9 @@ function initMap(pos) {
       return;
     }
 
+    var bounds = new google.maps.LatLngBounds();
     places.forEach(function(place) {
+      circle.setMap(null);
       if (!place.geometry) {
         console.log('Returned place contains no geometry');
         return;
@@ -58,10 +63,15 @@ function initMap(pos) {
 
       marker.setPosition(place.geometry.location);
       infoWindow.setContent(place.formatted_address);
-      circle.setCenter(place.geometry.location);
-      circle.set('radius', 25);
+      if (place.geometry.viewport) {
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+      bounds.extend(place.geometry.location);
     });
-    map.fitBounds(circle.getBounds());
+    map.fitBounds(bounds);
+    map.setZoom(18);
   });
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -115,9 +125,6 @@ function initMap(pos) {
         console.log(newPos);
         address(newPos);
       });
-
-      address(pos);
-      mapView.carrierPins(map); //////// THIS NEEDS TO BE MOVED
     },
     function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -125,7 +132,7 @@ function initMap(pos) {
   }
   else {
     handleLocationError(false, infoWindow, map.getCenter());
-    mapView.carrierPins(map);
+    mapView.carrierPins(map); //////// ???????????
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, center) {
@@ -135,6 +142,7 @@ function initMap(pos) {
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
   }
+  mapView.carrierPins(map); //////// does this work here?
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

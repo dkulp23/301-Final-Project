@@ -29,7 +29,7 @@
 
     <h3>This is an educational project and should not be used in lieu of real medical assistance</h3>
     <!-- TODO add event listener that displays the Informational page on click-->
-    <button id="reportOD"class='button'>Report an OD</button>
+    <button id="reportOD"class='button'>Report an Overdose</button>
     <h3>Call 911 if this is a matter of life and death</h3>
     <!-- TODO redirect the user to the registerCarrier page -->
     <button id="register"class='button'>Click here to register as a Narcan Carrier</button>
@@ -66,31 +66,37 @@
       <li>Their fingernails and lips turning blue or purple</li>
       <li>Slow heartbeat and/or low blood pressure</li>
     </ul>
-    <button id="yesReportOD">Yes I am witness to an OD and need to report</button>
+    <button id="yesReportOD">Yes I am witnessing an OD and need to report</button>
   </section>
 
   <section id="registerCarrier" class="page-content">
     <form id="carrierInfo">
       <label for="name">Name:</label>
-      <input name="name" type="text" placeholder="Full Name" required>
+      <input id="name" type="text" placeholder="Full Name" required>
       <label for="number">Phone:</label>
-      <input name="number" type="text" placeholder="(123)-456-7890" required>
+      <input id="number" type="text" placeholder="1234567890" required>
       <label for="address">Address:</label>
-      <input name="address" type="text" placeholder="123 Main St" required>
+      <input id="address" type="text" placeholder="123 Main St" required>
       <label for="city">City:</label>
-      <input name="city" type="text" placeholder="Seattle" required>
+      <input id="city" type="text" placeholder="Seattle" required>
       <label for="state">State:</label>
-      <input name="state" type="text" placeholder="WA" required>
+      <input id="state" type="text" placeholder="WA" required>
       <label for="zip">Zip:</label>
-      <input name="zip" type="text" placeholder="98101" required>
+      <input id="zip" type="text" placeholder="98101" required>
       <label>License Number:</label>
-      <input name="license" type="text" placeholder="123-456-789" required>
+      <input id="license" type="text" placeholder="123-456-789" required>
       <label for="email">Email:</label>
-      <input name="email" type="text" placeholder="ABC@gmail.com" required>
+      <input id="email" type="text" placeholder="ABC@gmail.com" required>
       <label for="submitButton">
       <button type="submit" form="carrierInfo" id="carrierInfoButton">Submit Info</button>
       </label>
     </form>
+  </section>
+
+  <section id="confirmRegistration" class="page-content">
+    <h1>Thank you!</h1>
+    <p>You have successfully registered with us as a carrier of Narcan.</p>
+    <p>You now have the power to potentially save a life. Should an overdose occur in your area, we will alert you immediately.</p>
   </section>
 
   <section id="reportODMap" class="page-content">
@@ -115,7 +121,6 @@
   <script src="scripts/controllers/routes.js"></script>
   <script src="scripts/models/info.js"></script>
   <script src="scripts/models/map.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&callback=initMap" async defer></script>
-  </body>
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&libraries=places&callback=initMap" async defer></script>
+</body>
   </html>

@@ -116,6 +116,8 @@ function initMap(pos) {
         address(newPos);
       });
 
+      address(pos);
+      mapView.carrierPins(map); //////// THIS NEEDS TO BE MOVED
     },
     function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -123,6 +125,7 @@ function initMap(pos) {
   }
   else {
     handleLocationError(false, infoWindow, map.getCenter());
+    mapView.carrierPins(map);
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, center) {

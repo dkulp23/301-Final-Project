@@ -70,15 +70,15 @@
         city: $(this).find('#city').val(),
         state: $(this).find('#state').val(),
         zip: parseInt($(this).find('#zip').val()),
-        email: $(this).find('#email').val(),
-        // license: $(this).find('#license').val()
+        email: $(this).find('#email').val()
       }
       console.log(carrierData);
       Carrier.postData(carrierData);
-  // TODO investigate the serialize method of jQuery for form data submission
-  });
+      $('.page-content').hide();
+      $('#confirmRegistration').fadeIn(500);
+      // TODO investigate the serialize method of jQuery for form data submission
+    });
   }
   handleInfoFormSubmit();
-
 
 })(window);

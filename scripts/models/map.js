@@ -65,7 +65,6 @@ function initMap(pos) {
       console.log(pos);
       address(pos);
       // console.log(address(pos));
-      mapView.carrierPins(map);
     },
     function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -73,7 +72,6 @@ function initMap(pos) {
   }
   else {
     handleLocationError(false, infoWindow, map.getCenter());
-    mapView.carrierPins(map);
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, center) {

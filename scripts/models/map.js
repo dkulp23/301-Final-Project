@@ -18,8 +18,15 @@ function initMap(pos) {
     {content: 'You are here'}
   );
 
-  var markers = [];
-  console.log('First markers: ' + markers);
+  var circle = new google.maps.Circle({
+    center: null,
+    radius: null,
+    map: map,
+    fillColor: '#0000FF',
+    fillOpacity: 0.1,
+    strokeColor: '#0000FF',
+    strokeOpacity: 0.3
+  });
 
   marker.addListener('click', function() {
     infoWindow.open(map, marker);
@@ -28,11 +35,7 @@ function initMap(pos) {
 
 /////////////////////////////////////////// search box ///////////////////////////////////////////
   var input = document.getElementById('map-input');
-  console.log('input: ' + input);
-
   var searchBox = new google.maps.places.SearchBox(input);
-  console.log('searchBox: ' + searchBox);
-
   // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
   map.addListener('bounds_changed', function() {
@@ -41,70 +44,42 @@ function initMap(pos) {
 
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
-    console.log('places: ' + places);
     if (places.length == 0) {
       return;
     }
 
-    // markers.forEach(function(marker) {
-    ///// this removes markers
-    //   marker.setMap(null);
-    // });
-    // markers = [];
-    markers.length = 0;
-    console.log('Second markers: ' + markers);
-
-    var bounds = new google.maps.LatLngBounds();
-    console.log('bounds' + bounds);
     places.forEach(function(place) {
-      console.log(place);
       if (!place.geometry) {
         console.log('Returned place contains no geometry');
         return;
       }
 
-      // Create a marker for each place.
-      markers.push(new google.maps.Marker({
-        map: map,
-        title: place.name,
-        position: place.geometry.location
-      }));
-      if (place.geometry.viewport) {
-        bounds.union(place.geometry.viewport);
-      } else {
-        bounds.extend(place.geometry.location);
-      }
+      marker.setPosition(place.geometry.location);
+      infoWindow.setContent(place.formatted_address);
+      circle.setCenter(place.geometry.location);
+      circle.set('radius', 25);
     });
-    map.fitBounds(bounds);
+    map.fitBounds(circle.getBounds());
   });
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////// geolocation ///////////////////////////////////////////
   if (navigator.geolocation)
   {
-    // console.log(pos);
-    // var positionOptions = {
+    // var positionOptions =
+    // {
     //   enableHighAccuracy: true
     // };
+
     navigator.geolocation.getCurrentPosition(function(position) {
       var latLng = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      // console.log(latLng);
-
-      var circle = new google.maps.Circle({
-        center: null,
-        radius: position.coords.accuracy,
-        map: map,
-        fillColor: '#0000FF',
-        fillOpacity: 0.1,
-        strokeColor: '#0000FF',
-        strokeOpacity: 0.3
-      });
 
       var setCircle = function(pos) {
         circle.setCenter(pos);
+        circle.set('radius', position.coords.accuracy);
       };
 
       var address = function(pos) {
@@ -128,7 +103,7 @@ function initMap(pos) {
       console.log(latLng);
       address(latLng);
 
-      google.maps.event.addListener(marker, 'dragend', function(evt) {
+      google.maps.event.addListener(marker, 'dragend', function() {
         var newLat = this.getPosition().lat();
         var newLng = this.getPosition().lng();
         var newPos = {
@@ -155,8 +130,6 @@ function initMap(pos) {
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
   }
-
-
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

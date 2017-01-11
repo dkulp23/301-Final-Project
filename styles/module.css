@@ -47,6 +47,10 @@
     border-color: #4d90fe;
   }
 
+  .capitalize {
+    text-transform: capitalize;
+  }
+
   /*.map-container {
     font-family: Roboto;
   }

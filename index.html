@@ -73,13 +73,13 @@
   <section id="registerCarrier" class="page-content">
     <form id="carrierInfo">
       <label for="name">Name:</label>
-      <input id="name" pattern="^[a-zA-Z ]+$" type="text" placeholder="First Name" required>
+      <input class="capitalize" id="name" pattern="^[a-zA-Z ]+$" type="text" placeholder="First Name" required>
       <label for="number">Phone:</label>
-      <input id="number" pattern="^\d{10}$" type="text" placeholder="1234567890" required>
+      <input class="capitalize" id="number" pattern="^\d{10}$" type="text" placeholder="1234567890" required>
       <label for="address">Address:</label>
-      <input id="address" pattern="^[a-zA-z0-9#,. ]+$" type="text" placeholder="123 Main St" required>
+      <input class="capitalize" id="address" pattern="^[a-zA-z0-9#,. ]+$" type="text" placeholder="123 Main St" required>
       <label for="city">City:</label>
-      <input id="city" pattern="^[a-zA-Z. ]+$" type="text" placeholder="Seattle" required>
+      <input class="capitalize" id="city" pattern="^[a-zA-Z. ]+$" type="text" placeholder="Seattle" required>
       <label for="state">State:</label>
       <select id="state" name="stateList" form="carrierInfo" required>
         <option value="">Select a State</option>
@@ -159,8 +159,11 @@
     <div id="reportODMap"></div>
     <!-- TODO Add the google maps interaction here -->
     <!-- <img src="http://donsmaps.com/images29/middleearthlargelargerstill.jpg"> -->
-    <div id="carrierList"></div>
-    <article id="receivingTemplate"></article>
+    <div id="carrierResults">
+      <ul id="carrierList">
+
+      </ul>
+    </div>
   </section>
   <!-- <section id="mapInfo" class="page-content">
     <h2>Please refer to the map to contact nearby Narcan carriers, or enter enter your zip code below:</h2>
@@ -180,6 +183,7 @@
   <script src="scripts/controllers/routes.js"></script>
   <script src="scripts/models/index.js"></script>
   <script src="scripts/models/carrierDB.js"></script>
+  <script src="scripts/models/carrierList.js"></script>
   <script src="scripts/models/info.js"></script>
   <script src="scripts/models/map.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&libraries=places&callback=initMap" async defer></script>

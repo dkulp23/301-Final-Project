@@ -148,11 +148,11 @@ function initMap(pos) {
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
   }
-  console.log('Marker is at: ' + whereAmI);
-  var test = document.getElementById('carrierList');
-  var list = document.createElement('p');
-  list.textContent = whereAmI;
-  test.append(list);
+  // console.log('Marker is at: ' + whereAmI);
+  // var test = document.getElementById('carrierList');
+  // var list = document.createElement('p');
+  // list.textContent = whereAmI;
+  // test.append(list);
 
   mapView.carrierPins(map);
 };

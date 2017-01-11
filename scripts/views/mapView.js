@@ -14,9 +14,16 @@ mapView.carrierPins = function(map) {
       }, function(results, status) {
           if (status == 'OK') {
             var marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location
+              map: map,
+              position: results[0].geometry.location
             });
+            var infoWindow = new google.maps.InfoWindow({
+              content:  '<div><h3>' + ele.name + '</h3>' +
+                        '<h3>' + ele.number + '</h3></div>'
+            })
+            marker.addListener('click', function() {
+              infoWindow.open(map, marker)
+            })
           } else {
             alert('Address not found: ' + status);
           }

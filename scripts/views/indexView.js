@@ -66,15 +66,17 @@
       console.log(carrierData);
       Carrier.postData(carrierData);
       $('.page-content').hide();
+      $('#carrierInfo')[0].reset();
       $('#confirmRegistration').fadeIn(500);
       // TODO investigate the serialize method of jQuery for form data submission
       //TODO figure out how to clear form fields upon submission
       //TODO ensure that form entries are posting to DB properly
     });
-  //     var newCarrier = new Carrier(carrierData);
-  // // TODO investigate the serialize method of jQuery for form data submission
+      // var newCarrier = new Carrier(carrierData);
+      // Carrier.getEmails(carrierData);
+  // TODO investigate the serialize method of jQuery for form data submission
   // });
-  };
+};
   handleInfoFormSubmit();
 
 })(window);

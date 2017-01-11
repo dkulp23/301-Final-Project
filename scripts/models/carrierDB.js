@@ -39,16 +39,23 @@
     });
   };
 
-  Carrier.sendAlertEmails = function(obj) {
+  // Carrier.sendAlertEmails = function(obj) {
+  //   console.log(obj);
+  //   $.ajax({
+  //     url: '/email',
+  //     method: 'GET',
+  //     data: obj
+  //   });
+  // };
+
+  Carrier.sendEmails = function() {
     Carrier.getEmails();
-    console.log(obj);
+    console.log(Carrier.allEmails);
     $.ajax({
       url: '/email',
-      method: 'GET',
-      data: obj
+      data: JSON.stringify(Carrier.allEmails)
     });
   };
 
-  Carrier.sendAlertEmails(Carrier.allEmails);
   module.Carrier = Carrier;
 })(window);

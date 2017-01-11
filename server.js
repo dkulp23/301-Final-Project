@@ -3,15 +3,14 @@ var port = process.env.PORT || 3000
 var app = express()
 var pg = require('pg')
 var bodyParser = require('body-parser')
-var asyncEach = require('async')
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-var connectionString = 'postgres://localhost:5432' || process.env.DATABASE_URL
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432'
 
 app.get('/carriersDB', function(req, res) {
+  console.log(connectionString);
   const client = new pg.Client(connectionString);
-
   client.connect(function(err) {
     if(err) {
       console.error('Trouble connecting to postgres', err)

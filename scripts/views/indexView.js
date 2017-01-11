@@ -11,15 +11,17 @@
   };
   initialLoad();
 
-  var handleTheSectionView = function () {
-    $('#nav-bar').on('click', '.nav-item', function(event) {
-      event.preventDefault();
-      $('.page-content').hide();
-      $(`#${$(this).data('content')}`).fadeIn(400);
-    });
-  }
+  //**This function is being commented out, so page.js uses the routes file instead -MM**
 
-  handleTheSectionView();
+  // var handleTheSectionView = function () {
+  //   $('#nav-bar').on('click', '.nav-item', function(event) {
+  //     event.preventDefault();
+  //     $('.page-content').hide();
+  //     $(`#${$(this).data('content')}`).fadeIn(400);
+  //   });
+  // }
+  //
+  // handleTheSectionView();
 
   var handleTheReportODButton = function () {
     $('#reportOD').on('click', function(event) {
@@ -64,10 +66,9 @@
       console.log(carrierData);
       Carrier.postData(carrierData);
       $('.page-content').hide();
+      $('#carrierInfo')[0].reset();
       $('#confirmRegistration').fadeIn(500);
       // TODO investigate the serialize method of jQuery for form data submission
-      //TODO figure out how to clear form fields upon submission
-      //TODO ensure that form entries are posting to DB properly
     });
   }
   handleInfoFormSubmit();

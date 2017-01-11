@@ -68,8 +68,10 @@
       $('.page-content').hide();
       $('#carrierInfo')[0].reset();
       $('#confirmRegistration').fadeIn(500);
-      // TODO investigate the serialize method of jQuery for form data submission
-    });
+      var newCarrier = new Carrier(carrierData);
+      Carrier.getEmails(carrierData);
+  // TODO investigate the serialize method of jQuery for form data submission
+  });
   }
   handleInfoFormSubmit();
 

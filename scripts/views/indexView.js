@@ -29,7 +29,7 @@
       $('.page-content').hide();
       $('#informational').fadeIn(400);
     });
-  }
+  };
   handleTheReportODButton();
 
   var handleTheRegisterButton = function () {
@@ -38,7 +38,7 @@
       $('.page-content').hide();
       $('#registerCarrier').fadeIn(400);
     });
-  }
+  };
   handleTheRegisterButton();
 
   var handleTheYesReportODButton = function () {
@@ -48,7 +48,7 @@
       $('#mapSection').fadeIn(400);
       $('#mapInfo').fadeIn(400);
     });
-  }
+  };
   handleTheYesReportODButton();
 
   var handleInfoFormSubmit = function () {
@@ -62,7 +62,7 @@
         state: $(this).find('#state').val(),
         zip: parseInt($(this).find('#zip').val()),
         email: $(this).find('#email').val()
-      }
+      };
       console.log(carrierData);
       Carrier.postData(carrierData);
       $('.page-content').hide();
@@ -71,7 +71,10 @@
       //TODO figure out how to clear form fields upon submission
       //TODO ensure that form entries are posting to DB properly
     });
-  }
+  //     var newCarrier = new Carrier(carrierData);
+  // // TODO investigate the serialize method of jQuery for form data submission
+  // });
+  };
   handleInfoFormSubmit();
 
 })(window);

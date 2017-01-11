@@ -21,6 +21,7 @@
 }
 
 #landingPage {
+  height: 100%;
   margin: 0;
   padding: 50px;
 }
@@ -35,6 +36,12 @@
   width: 150px;
   border: solid 1px #FE5F55;
   border-radius: 50%
+}
+
+#reportODMap {
+ height: 100%;
+ /*width: 50%;*/
+
 }
 
 #register {

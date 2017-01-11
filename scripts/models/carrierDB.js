@@ -13,6 +13,7 @@
   };
 
   Carrier.allCarriers = [ ];
+  Carrier.allEmails = [ ];
 
   Carrier.getData = function() {
     $.getJSON('/carriersDB')
@@ -32,5 +33,22 @@
     });
   };
   // TODO: MOVE this function call to the one of the VIEW files Carrier.getData();
+  Carrier.getEmails = function() {
+    Carrier.allCarriers.map(function(obj){
+      Carrier.allEmails.push(obj.email);
+    });
+  };
+
+  Carrier.sendAlertEmails = function(obj) {
+    Carrier.getEmails();
+    console.log(obj);
+    $.ajax({
+      url: '/email',
+      method: 'GET',
+      data: obj
+    });
+  };
+
+  Carrier.sendAlertEmails(Carrier.allEmails);
   module.Carrier = Carrier;
 })(window);

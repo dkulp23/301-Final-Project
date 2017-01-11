@@ -40,9 +40,8 @@
   }
 
   Carrier.sendEmails = function() {
-    $.getJSON('/carriersDB', function(data) {
-      data.allEmails.forEach(console.log(data));
-    });
+    $.get('/email', Carrier.allEmails)
+    };
   }
 
   module.Carrier = Carrier;

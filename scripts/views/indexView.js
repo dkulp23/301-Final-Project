@@ -76,6 +76,7 @@
       console.log(carrierData);
       Carrier.postData(carrierData);
       var newCarrier = new Carrier(carrierData);
+      Carrier.getEmails(carrierData);
   // TODO investigate the serialize method of jQuery for form data submission
   });
   }

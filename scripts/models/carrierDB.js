@@ -40,6 +40,12 @@
       Carrier.allEmails.push(obj.email);
     });
   }
-  Carrier.getEmails();
+
+  Carrier.sendEmails = function() {
+    $.getJSON('/carriersDB', function(data) {
+      data.allEmails.forEach(console.log(data));
+    });
+  }
+
   module.Carrier = Carrier;
 })(window);

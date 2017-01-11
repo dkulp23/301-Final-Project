@@ -1,5 +1,7 @@
 'use strict';
 
+var whereAmI;
+
 function initMap(pos) {
 
   $('#map-input').val('');
@@ -63,6 +65,7 @@ function initMap(pos) {
 
       marker.setPosition(place.geometry.location);
       infoWindow.setContent(place.formatted_address);
+      whereAmI = place.formatted_address;
       if (place.geometry.viewport) {
         bounds.union(place.geometry.viewport);
       } else {
@@ -106,6 +109,8 @@ function initMap(pos) {
             setCircle(pos);
             map.fitBounds(circle.getBounds());
             infoWindow.setContent(results[0].formatted_address);
+            whereAmI = results[0].formatted_address;
+            // list.textContent = whereAmI;
           }
           else {
             return 'Unable to retrieve your address';
@@ -124,6 +129,7 @@ function initMap(pos) {
         };
         console.log(newPos);
         address(newPos);
+        // list.textContent = whereAmI;
       });
     },
     function() {
@@ -142,7 +148,13 @@ function initMap(pos) {
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
   }
-  mapView.carrierPins(map); //////// does this work here?
+  // console.log('Marker is at: ' + whereAmI);
+  // var test = document.getElementById('carrierList');
+  // var list = document.createElement('p');
+  // list.textContent = whereAmI;
+  // test.append(list);
+
+  mapView.carrierPins(map);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

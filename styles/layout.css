@@ -34,7 +34,7 @@
   height: 150px;
   width: 150px;
   border: solid 1px #FE5F55;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 #register {
@@ -54,6 +54,7 @@
   border: solid 1px #FE5F55;
   border-radius: 50%
 }
+
 
 #informational h1 {
   margin: 50px 130px 50px;

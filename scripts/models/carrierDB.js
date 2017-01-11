@@ -13,6 +13,7 @@
   };
 
   Carrier.allCarriers = [ ];
+  Carrier.allEmails = [ ];
 
   Carrier.getData = function() {
     $.getJSON('/carriersDB', function(data) {
@@ -36,7 +37,7 @@
   // TODO: MOVE this function call to the one of the VIEW files Carrier.getData();
   Carrier.getEmails = function() {
     Carrier.allCarriers.map(function(obj){
-      console.log(obj.email);
+      Carrier.allEmails.push(obj.email);
     });
   }
   Carrier.getEmails();

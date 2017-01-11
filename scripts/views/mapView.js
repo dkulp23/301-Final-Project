@@ -18,8 +18,8 @@ mapView.carrierPins = function(map) {
               position: results[0].geometry.location
             });
             var infoWindow = new google.maps.InfoWindow({
-              content:  '<div><h3>' + ele.name + '</h3>' +
-                        '<h3>' + ele.number + '</h3></div>'
+              content:  '<div class="carrier-pin-div"><p class="carrier-pin-text">' + ele.name + '</p>' +
+                        '<p class="carrier-pin-window">' + ele.number + '</p></div>'
             })
             marker.addListener('click', function() {
               infoWindow.open(map, marker)

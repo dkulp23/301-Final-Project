@@ -9,7 +9,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432'
 
 app.get('/carriersDB', function(req, res) {
-  console.log(connectionString);
   const client = new pg.Client(connectionString);
   client.connect(function(err) {
     if(err) {
@@ -46,8 +45,8 @@ app.post('/carriersDB', bodyParser.json(), function(req, res){
 res.send('Post complete')
 })
 
-app.get('/email', function(req, res){
-  console.log(req.body);
+app.post('/email', bodyParser.json(), function(req, res){
+  console.log('request body', req.body);
  var helper = require('sendgrid').mail;
  var from_email = new helper.Email('app61618793@heroku.com');
  // to email is where we will build some additional logic to query the DB for any users that need to receive this email

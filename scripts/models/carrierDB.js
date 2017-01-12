@@ -33,20 +33,20 @@
   };
 
   Carrier.getEmails = function () {
-    console.log('getEmails function', Carrier.allCarriers);
-    [1,2,3,4].map(function(ele) {
-      console.log('ele', ele);
-    });
+    // var to_emails = [];
     var emails = Carrier.allCarriers.map(function(ele) {
-      console.log(ele);
       return ele.email;
     });
+    // .forEach(function(ele){
+    //   to_emails.push(new helper.Email(ele));
+    // });
     console.log('emails', emails);
-
     $.ajax({
       url: '/email',
-      method: 'get',
-      data: emails
+      method: 'POST',
+      data: {
+        emails: emails
+      }
     });
   };
 

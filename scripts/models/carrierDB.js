@@ -14,12 +14,13 @@
 
   Carrier.allCarriers = [ ];
 
-  Carrier.getData = function() {
+  Carrier.getData = function(callback) {
     $.getJSON('/carriersDB')
     .then(function(data) {
       data.rows.forEach(function(ele) {
         var newCarrier = new Carrier(ele);
       });
+      callback();
     });
   };
 
@@ -32,11 +33,15 @@
   };
 
   Carrier.getEmails = function () {
-    console.log('I am inside the getEmails function');
+    console.log('getEmails function', Carrier.allCarriers);
+    [1,2,3,4].map(function(ele) {
+      console.log('ele', ele);
+    });
     var emails = Carrier.allCarriers.map(function(ele) {
+      console.log(ele);
       return ele.email;
     });
-    console.log(emails);
+    console.log('emails', emails);
 
     $.ajax({
       url: '/email',

@@ -4,8 +4,7 @@ const mapView = {}
 
 mapView.getCarrierInfo = function() {
   console.log('Carrier.allCarriers', Carrier.allCarriers)
-  Carrier.getData()
-  Carrier.getEmails()
+  Carrier.getData(Carrier.getEmails)
 }
 
 mapView.carrierPins = function(map) {

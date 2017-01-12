@@ -138,7 +138,6 @@ function initMap(pos) {
   }
   else {
     handleLocationError(false, infoWindow, map.getCenter());
-    mapView.carrierPins(map); //////// ???????????
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, center) {
@@ -147,6 +146,7 @@ function initMap(pos) {
       '<h3 style="text-align:center">Error: The Geolocation service failed.<br>Please type in address or landmark.</h3>' :
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
+    // mapView.carrierPins(map);
   }
   // console.log('Marker is at: ' + whereAmI);
   // var test = document.getElementById('carrierList');
@@ -154,7 +154,7 @@ function initMap(pos) {
   // list.textContent = whereAmI;
   // test.append(list);
 
-  mapView.carrierPins(map);
+  // mapView.carrierPins(map);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

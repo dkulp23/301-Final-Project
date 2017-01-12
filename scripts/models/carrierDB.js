@@ -36,6 +36,7 @@
     var emails = Carrier.allCarriers.map(function(ele) {
       return ele.email;
     });
+    console.log(emails);
 
     $.ajax({
       url: '/email',

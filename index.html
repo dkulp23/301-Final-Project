@@ -21,19 +21,34 @@
 </head>
 <body>
   <div id="nav-bar">
-    <a href="/" class="nav-item" data-content="landingPage">Home</a>
-    <a href="/info" class="nav-item" data-content="informational">Information to Identify Overdoses</a>
-    <a href="/register" class="nav-item" data-content="registerCarrier">Register to Carry Narcan</a>
+    <div id="navLandingPage">
+      <a href="/" class="nav-item" data-content="landingPage">Home</a>
+    </div>
+    <div id="navInformational">
+      <a href="/info" class="nav-item" data-content="informational">Information to Identify Overdoses</a>
+    </div>
+    <div id="navRegisterCarrier">
+      <a href="/register" class="nav-item" data-content="registerCarrier">Register to Carry Narcan</a>
+    </div>
   </div>
   <section id="landingPage" class="page-content">
-    <h1>Best 301 Project EVER!!!</h1>
-
-    <h3>This is an educational project and should not be used in lieu of real medical assistance</h3>
-    <!-- TODO add event listener that displays the Informational page on click-->
-    <button id="reportOD" class='button'>Report an Overdose</button>
-    <h3>Call 911 if this is a matter of life and death</h3>
-    <!-- TODO redirect the user to the registerCarrier page -->
-    <button id="register" class='button'>Click here to register as a Narcan Carrier</button>
+    <div id="landingPageDiv">
+      <div>
+        <h1>Best 301 Project EVER!!!</h1>
+      </div>
+      <div>
+        <h3>This is an educational project and should not be used in lieu of real medical assistance</h3>
+      </div>
+      <div>
+        <button id="reportOD" class='button'>Report an Overdose</button>
+      </div>
+      <div>
+      <h3>Call 911 if this is a matter of life and death</h3>
+      </div>
+      <div>
+        <button id="register" class='button'>Click here to register as a Narcan Carrier</button>
+      </div>
+    </div>
   </section>
 
   <section id="informational" class="page-content">
@@ -59,15 +74,17 @@
     </div>
     <!-- TODO Use JS to switch between the array of images  -->
     <!--TODO Direct the user to the reportODMap section -->
-    <h1>Is this an overdose? Signs include:</h1>
-    <ul>
-      <li>The person will not wake up or respond to your voice or touch</li>
-      <li>Their breathing is very slow, irregular or has stopped</li>
-      <li>The center part of their eye is very small — sometimes called “pinpoint pupils”</li>
-      <li>Their fingernails and lips turning blue or purple</li>
-      <li>Slow heartbeat and/or low blood pressure</li>
-    </ul>
-    <button id="yesReportOD">Yes I am witnessing an OD and need to report</button>
+    <div id="informationalDiv">
+      <h1>Is this an overdose? Signs include:</h1>
+      <ul>
+        <li>The person will not wake up or respond to your voice or touch</li>
+        <li>Their breathing is very slow, irregular or has stopped</li>
+        <li>The center part of their eye is very small — sometimes called “pinpoint pupils”</li>
+        <li>Their fingernails and lips turning blue or purple</li>
+        <li>Slow heartbeat and/or low blood pressure</li>
+      </ul>
+      <button id="yesReportOD">Yes I am witnessing an OD and need to report</button>
+    </div>
   </section>
 
   <section id="registerCarrier" class="page-content">

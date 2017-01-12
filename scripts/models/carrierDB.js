@@ -14,15 +14,15 @@
 
   Carrier.allCarriers = [ ];
 
-  Carrier.getData = function() {
+  Carrier.getData = function(callback) {
     $.getJSON('/carriersDB')
     .then(function(data) {
       data.rows.forEach(function(ele) {
         var newCarrier = new Carrier(ele);
       });
+      callback();
     });
   };
-// TODO finish grbbing the content from the form and matching it up to the data key
 
   Carrier.postData = function(obj) {
     $.ajax({
@@ -31,6 +31,24 @@
       data: obj
     });
   };
-  // TODO: MOVE this function call to the one of the VIEW files Carrier.getData();
+
+  Carrier.getEmails = function () {
+    // var to_emails = [];
+    var emails = Carrier.allCarriers.map(function(ele) {
+      return ele.email;
+    });
+    // .forEach(function(ele){
+    //   to_emails.push(new helper.Email(ele));
+    // });
+    console.log('emails', emails);
+    $.ajax({
+      url: '/email',
+      method: 'POST',
+      data: {
+        emails: emails
+      }
+    });
+  };
+
   module.Carrier = Carrier;
 })(window);

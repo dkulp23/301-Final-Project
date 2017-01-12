@@ -162,6 +162,7 @@ function renderMap() {
   $('#yesReportOD').on('click', function() {
     initMap();
     populateList();
+    mapView.getCarrierInfo();
   });
 }
 

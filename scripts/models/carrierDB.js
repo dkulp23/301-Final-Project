@@ -31,6 +31,7 @@
       data: obj
     });
   };
+  
   // TODO: MOVE this function call to the one of the VIEW files Carrier.getData();
   module.Carrier = Carrier;
 })(window);

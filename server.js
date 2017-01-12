@@ -46,6 +46,31 @@ app.post('/carriersDB', bodyParser.json(), function(req, res){
 res.send('Post complete')
 })
 
+app.get('/email', function(req, res){
+ var helper = require('sendgrid').mail;
+ var from_email = new helper.Email('[]');
+ // to email is where we will build some additional logic to query the DB for any users that need to receive this email
+ var to_email = new helper.Email('olds1423@gmail.com');
+ var subject = 'Hello World from the SendGrid Node.js Library!';
+ var content = new helper.Content('text/plain', 'Hello, Email!');
+ var mail = new helper.Mail(from_email, subject, to_email, content);
+
+ var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+ var request = sg.emptyRequest({
+   method: 'POST',
+   path: '/v3/mail/send',
+   body: mail.toJSON(),
+ });
+
+ sg.API(request, function(error, response) {
+   console.log(response.statusCode);
+   console.log(response.body);
+   console.log(response.headers);
+ });
+ //sends us home after triggering an api request
+ res.redirect('/')
+})
+
 app.use(express.static('./'))
 
 

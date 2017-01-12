@@ -22,7 +22,6 @@
       });
     });
   };
-// TODO finish grbbing the content from the form and matching it up to the data key
 
   Carrier.postData = function(obj) {
     $.ajax({
@@ -31,7 +30,19 @@
       data: obj
     });
   };
-  
-  // TODO: MOVE this function call to the one of the VIEW files Carrier.getData();
+
+  Carrier.getEmails = function () {
+    console.log('I am inside the getEmails function');
+    var emails = Carrier.allCarriers.map(function(ele) {
+      return ele.email;
+    });
+
+    $.ajax({
+      url: '/email',
+      method: 'get',
+      data: emails
+    });
+  };
+
   module.Carrier = Carrier;
 })(window);

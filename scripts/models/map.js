@@ -165,5 +165,3 @@ function renderMap() {
     mapView.getCarrierInfo();
   });
 }
-
-renderMap();

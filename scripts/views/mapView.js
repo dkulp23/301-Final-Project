@@ -6,6 +6,8 @@ mapView.getCarrierInfo = function() {
   Carrier.getData()
 }
 
+
+
 mapView.carrierPins = function(map) {
   console.log('inside carrierPins');
   console.log('map', map);

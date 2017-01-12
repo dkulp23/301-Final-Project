@@ -33,18 +33,18 @@
     });
   };
 
-  Carrier.getEmails = function () {
-    var emails = Carrier.allCarriers.map(function(ele) {
-      return ele.email;
-    });
-    $.ajax({
-      url: '/email',
-      method: 'POST',
-      data: {
-        emails: emails
-      }
-    });
-  };
+  // Carrier.getEmails = function () {
+  //   var emails = Carrier.allCarriers.map(function(ele) {
+  //     return ele.email;
+  //   });
+  //   $.ajax({
+  //     url: '/email',
+  //     method: 'POST',
+  //     data: {
+  //       emails: emails
+  //     }
+  //   });
+  // };
 
   module.Carrier = Carrier;
 })(window);

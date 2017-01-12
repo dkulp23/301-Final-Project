@@ -162,21 +162,29 @@
   </section>
 
   <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
+  <!--//////// VENDORS \\\\\\\\-->
   <script src="scripts/vendor/ajax.js"></script>
   <script src="scripts/vendor/handlebars.js"></script>
   <script src="scripts/vendor/pages.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!--//////// MODELS \\\\\\\\-->
   <script src="scripts/models/index.js"></script>
   <script src="scripts/models/carrierDB.js"></script>
   <script src="scripts/models/carrierList.js"></script>
-  <script src="scripts/views/indexView.js"></script>
+  <script src="scripts/models/info.js"></script>
+  <script src="scripts/models/map.js"></script>
+  <!--//////// VIEWS \\\\\\\\-->
+  <script src="scripts/views/landingView.js"></script>
+  <script src="scripts/views/carrierRegView.js"></script>
+  <script src="scripts/views/infoView.js"></script>
+  <script src="scripts/views/mapView.js"></script>
+  <!--//////// CONTROLLERS \\\\\\\\-->
   <script src="scripts/controllers/homeController.js"></script>
   <script src="scripts/controllers/infoController.js"></script>
   <script src="scripts/controllers/registerController.js"></script>
-  <script src="scripts/models/info.js"></script>
+  <!--//////// GOOGLE MAPS API \\\\\\\\-->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZgxCbkF-LbMuQF8aDUE5187tcT_P72Q&libraries=places&callback=initMap" async defer></script>
-  <script src="scripts/models/map.js"></script>
-  <script src="scripts/views/mapView.js"></script>
+  <!--//////// PAGE.JS ROUTES \\\\\\\\-->  
   <script src="scripts/controllers/routes.js"></script>
 </body>
   </html>

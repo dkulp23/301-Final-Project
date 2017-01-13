@@ -3,7 +3,7 @@
 (function(module) {
   const registrationController = {};
 
-  registrationController.handleInfoFormSubmit = function () {
+  registrationController.handleInfoFormSubmit = function (ctx, next) {
     $('#carrierInfo').submit(function(event) {
       event.preventDefault();
       var carrierData = {
@@ -17,12 +17,8 @@
       }
       console.log(carrierData);
       Carrier.postData(carrierData);
-      $('.page-content').hide();
-      $('#carrierInfo')[0].reset();
-      $('#confirmRegistration').fadeIn(500);
-      // TODO investigate the serialize method of jQuery for form data submission
+      next();
     });
   }
-  handleInfoFormSubmit();
   module.registrationController = registrationController;
 })(window);

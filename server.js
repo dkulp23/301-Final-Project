@@ -20,6 +20,7 @@ app.get('/carriersDB', function(req, res) {
         if(err) {
           console.error('Query failed', err)
         }
+        console.log(result);
         res.json(result);
         client.end();
       }
@@ -75,7 +76,7 @@ app.use(express.static('./'))
 
 app.get('*', function(request, response) {
   console.log(`New request ${request.url}`)
-  response.sendFile('index', {root: '.'})
+  response.sendFile('index.html', {root: '.'})
 })
 
 app.listen(port, function() {

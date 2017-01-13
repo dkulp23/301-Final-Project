@@ -14,15 +14,16 @@
 
   Carrier.allCarriers = [ ];
 
-  Carrier.getData = function() {
+  Carrier.getData = function(ctx, next) {
     $.getJSON('/carriersDB')
       .then(function(data) {
         data.rows.forEach(function(ele) {
           var newCarrier = new Carrier(ele);
-        })
-      .then(function(){Carrier.getEmails();})
-      .then(function(){mapView.carrierPins();});
+        });
+      // .then(function(){Carrier.getEmails();})
+      // .then(function(){mapView.carrierPins();});
     });
+    // next();
   };
 
   Carrier.postData = function(obj) {

@@ -17,14 +17,14 @@
   //
   // handleTheSectionView();
 
-  var handleTheReportODButton = function () {
-    $('#reportOD').on('click', function(event) {
-      event.preventDefault();
-      $('.page-content').hide();
-      $('#informational').fadeIn(400);
-    });
-  }
-  handleTheReportODButton();
+  // var handleTheReportODButton = function () {
+  //   $('#reportOD').on('click', function(event) {
+  //     event.preventDefault();
+  //     $('.page-content').hide();
+  //     $('#informational').fadeIn(400);
+  //   });
+  // }
+  // handleTheReportODButton();
 
   var handleTheRegisterButton = function () {
     $('#register').on('click', function(event) {
@@ -35,37 +35,15 @@
   }
   handleTheRegisterButton();
 
-  var handleTheYesReportODButton = function () {
-    $('#yesReportOD').on('click', function(event) {
-      event.preventDefault();
-      $('.page-content').hide();
-      $('#mapSection').fadeIn(400);
-      $('#mapInfo').fadeIn(400);
-    });
-  }
-  handleTheYesReportODButton();
-
-  var handleInfoFormSubmit = function () {
-    $('#carrierInfo').submit(function(event) {
-      event.preventDefault();
-      var carrierData = {
-        name: $(this).find('#name').val(),
-        number: parseInt($(this).find('#number').val()),
-        address: $(this).find('#address').val(),
-        city: $(this).find('#city').val(),
-        state: $(this).find('#state').val(),
-        zip: parseInt($(this).find('#zip').val()),
-        email: $(this).find('#email').val()
-      }
-      console.log(carrierData);
-      Carrier.postData(carrierData);
-      $('.page-content').hide();
-      $('#carrierInfo')[0].reset();
-      $('#confirmRegistration').fadeIn(500);
-      // TODO investigate the serialize method of jQuery for form data submission
-    });
-  }
-  handleInfoFormSubmit();
+  // var handleTheYesReportODButton = function () {
+  //   $('#yesReportOD').on('click', function(event) {
+  //     event.preventDefault();
+  //     $('.page-content').hide();
+  //     $('#mapSection').fadeIn(400);
+  //     $('#mapInfo').fadeIn(400);
+  //   });
+  // }
+  // handleTheYesReportODButton();
 
   indexView.initalLoad = function(ctx, next) {
     $('.page-content').hide();

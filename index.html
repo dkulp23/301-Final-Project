@@ -31,10 +31,10 @@
 
     <h3>This is an educational project and should not be used in lieu of real medical assistance</h3>
     <!-- TODO add event listener that displays the Informational page on click-->
-    <button id="reportOD" class='button' href="/info">Report an Overdose</button>
+    <a href="/info"><button id="reportOD" class="button">Report an Overdose</button></a>
     <h3>Call 911 if this is a matter of life and death</h3>
     <!-- TODO redirect the user to the registerCarrier page -->
-    <button id="register" class='button' href="/register">Click here to register as a Narcan Carrier</button>
+    <a href="/register"><button id="register" class="button">Click here to register as a Narcan Carrier</button></a>
   </section>
 
   <section id="informational" class="page-content">
@@ -68,10 +68,10 @@
       <li>Their fingernails and lips turning blue or purple</li>
       <li>Slow heartbeat and/or low blood pressure</li>
     </ul>
-    <button id="yesReportOD" class="button" href="/reportOD">Yes I am witnessing an OD and need to report</button>
+    <a href="/reportOD"><button id="yesReportOD" class="button">Yes I am witnessing an OD and need to report</button></a>
   </section>
 
-  <section id="registerCarrier" class="page-content" href="/register">
+  <section id="registerCarrier" class="page-content">
     <form id="carrierInfo" class="form">
       <label for="name">Name:</label>
       <input id="name" class="capitalize" pattern="^[a-zA-Z ]+$" type="text" placeholder="Full Name" required>

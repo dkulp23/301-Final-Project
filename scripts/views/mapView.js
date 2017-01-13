@@ -6,8 +6,6 @@ mapView.getCarrierInfo = function() {
   Carrier.getData()
 }
 
-
-
 mapView.carrierPins = function(map) {
   console.log('inside carrierPins');
   console.log('map', map);
@@ -38,11 +36,11 @@ mapView.carrierPins = function(map) {
     })
   }
 
-  mapView.showMap = function(ctx, next) {
+  mapView.showMap = function() {
+    console.log('Why is this not working?');
     $('.page-content').hide();
     $('#mapSection').show();
-    next();
-  }
+  };
 
 module.mapView = mapView
 })(window);

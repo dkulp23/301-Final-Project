@@ -1,12 +1,12 @@
 'use strict';
 
 var whereAmI;
-
+var map;
 function initMap(pos) {
 
   $('#map-input').val('');
 
-  var map = new google.maps.Map(document.getElementById('reportODMap'), {
+  map = new google.maps.Map(document.getElementById('reportODMap'), {
     center: pos || {lat: 47.611435, lng: -122.330456},
     zoom: 10,
     styles: [{'featureType':'administrative','elementType':'labels.text.fill','stylers':[{'color':'#444444'}]},{'featureType':'landscape','elementType':'all','stylers':[{'color':'#f2f2f2'}]},{'featureType':'landscape.man_made','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#eae9ed'}]},{'featureType':'landscape.natural','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'landscape.natural.landcover','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'landscape.natural.terrain','elementType':'geometry','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'poi','elementType':'all','stylers':[{'visibility':'on'}]},{'featureType':'poi.park','elementType':'geometry.fill','stylers':[{'visibility':'on'}]},{'featureType':'road','elementType':'all','stylers':[{'saturation':-100},{'lightness':45}]},{'featureType':'road','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#ffffff'}]},{'featureType':'road','elementType':'geometry.stroke','stylers':[{'visibility':'off'}]},{'featureType':'road','elementType':'labels.text.stroke','stylers':[{'visibility':'off'}]},{'featureType':'road.highway','elementType':'all','stylers':[{'visibility':'simplified'}]},{'featureType':'road.arterial','elementType':'labels.icon','stylers':[{'visibility':'off'}]},{'featureType':'transit','elementType':'all','stylers':[{'visibility':'off'}]},{'featureType':'water','elementType':'all','stylers':[{'color':'#b3dced'},{'visibility':'on'}]}]
@@ -138,7 +138,6 @@ function initMap(pos) {
   }
   else {
     handleLocationError(false, infoWindow, map.getCenter());
-    mapView.carrierPins(map); //////// ???????????
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, center) {
@@ -154,7 +153,6 @@ function initMap(pos) {
   // list.textContent = whereAmI;
   // test.append(list);
 
-  mapView.carrierPins(map);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -162,7 +160,6 @@ function renderMap() {
   $('#yesReportOD').on('click', function() {
     initMap();
     populateList();
-    mapView.getCarrierInfo();
   });
 }
 

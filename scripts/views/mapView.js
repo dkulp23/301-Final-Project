@@ -38,6 +38,11 @@ mapView.carrierPins = function(map) {
     })
   }
 
+  mapView.showMap = function(ctx, next) {
+    $('.page-content').hide();
+    $('#mapSection').show();
+    next();
+  }
 
 module.mapView = mapView
 })(window);

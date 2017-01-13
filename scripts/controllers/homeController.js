@@ -3,9 +3,10 @@
 (function(module) {
   var homeController = {};
 
-  homeController.reveal = function() {
+  homeController.reveal = function(ctx, next) {
     $('.page-content').hide();
     $('#landingPage').show();
+    next();
   };
 
   module.homeController = homeController;

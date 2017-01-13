@@ -5,12 +5,6 @@
 
   var template = Handlebars.compile($('#registeredTemplate').text());
 
-  var initialLoad = function (event) {
-    $('.page-content').hide();
-    $('#landingPage').show();
-  };
-  initialLoad();
-
   //**This function is being commented out, so page.js uses the routes file instead -MM**
 
   // var handleTheSectionView = function () {
@@ -73,4 +67,11 @@
   }
   handleInfoFormSubmit();
 
+  indexView.initalLoad = function(ctx, next) {
+    $('.page-content').hide();
+    $('#landingPage').show();
+    next();
+  };
+
+  module.indexView = indexView;
 })(window);

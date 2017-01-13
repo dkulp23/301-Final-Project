@@ -14,13 +14,15 @@
 
   Carrier.allCarriers = [ ];
 
-  Carrier.getData = function(callback) {
+  Carrier.getData = function() {
     $.getJSON('/carriersDB')
     .then(function(data) {
       data.rows.forEach(function(ele) {
-        var newCarrier = new Carrier(ele);
+        new Carrier(ele);
       });
-      callback();
+    })
+    .then(function() {
+      localStorage.setItem('carrier_info', JSON.stringify(Carrier.allCarriers));
     });
   };
 
@@ -33,14 +35,10 @@
   };
 
   Carrier.getEmails = function () {
-    // var to_emails = [];
-    var emails = Carrier.allCarriers.map(function(ele) {
+    var carriers = JSON.parse(localStorage.getItem('carrier_info'));
+    var emails = carriers.map(function(ele) {
       return ele.email;
     });
-    // .forEach(function(ele){
-    //   to_emails.push(new helper.Email(ele));
-    // });
-    console.log('emails', emails);
     $.ajax({
       url: '/email',
       method: 'POST',

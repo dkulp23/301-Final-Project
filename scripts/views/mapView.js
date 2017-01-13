@@ -2,12 +2,9 @@
 
 const mapView = {}
 
-mapView.getCarrierInfo = function() {
-  Carrier.getData(Carrier.getEmails)
-}
-
-mapView.carrierPins = function(map) {
-  Carrier.allCarriers.forEach(function(ele) {
+mapView.carrierPins = function() {
+  var carriers = JSON.parse(localStorage.getItem('carrier_info'));
+  carriers.forEach(function(ele) {
     var geocoder = new google.maps.Geocoder()
     geocoder.geocode(
       { 'address': ele.address + ' ' + ele.zip
@@ -16,6 +13,13 @@ mapView.carrierPins = function(map) {
             var marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
+            })
+            var infoWindow = new google.maps.InfoWindow({
+              content:  '<div class="carrier-pin-div"><p class="carrier-pin-text">' + ele.name + '</p>' +
+                        '<p class="carrier-pin-window">' + ele.number + '</p></div>'
+            })
+            marker.addListener('click', function() {
+              infoWindow.open(map, marker);
             });
           } else {
             alert('Address not found: ' + status);

@@ -20,4 +20,8 @@
   background-color: #BDD5EA;
   color: black;
   padding: 10px;
+
+.is-pressed {
+  border-width: thick;
+
 }

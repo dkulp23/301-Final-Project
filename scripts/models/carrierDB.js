@@ -35,14 +35,10 @@
   };
 
   Carrier.getEmails = function () {
-    // var to_emails = [];
-    var emails = Carrier.allCarriers.map(function(ele) {
+    var carriers = JSON.parse(localStorage.getItem('carrier_info'));
+    var emails = carriers.map(function(ele) {
       return ele.email;
     });
-    // .forEach(function(ele){
-    //   to_emails.push(new helper.Email(ele));
-    // });
-    console.log('emails', emails);
     $.ajax({
       url: '/email',
       method: 'POST',

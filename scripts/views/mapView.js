@@ -4,9 +4,7 @@ const mapView = {}
 
 mapView.carrierPins = function() {
   var carriers = JSON.parse(localStorage.getItem('carrier_info'));
-  console.log('carriers', carriers);
   carriers.forEach(function(ele) {
-    console.log(ele);
     var geocoder = new google.maps.Geocoder()
     geocoder.geocode(
       { 'address': ele.address + ' ' + ele.zip

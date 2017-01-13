@@ -7,8 +7,8 @@ mapView.getCarrierInfo = function() {
 }
 
 mapView.carrierPins = function(map) {
+  var geocoder = new google.maps.Geocoder()
   Carrier.allCarriers.forEach(function(ele) {
-    var geocoder = new google.maps.Geocoder()
     geocoder.geocode(
       { 'address': ele.address + ' ' + ele.zip
       }, function(results, status) {
@@ -24,7 +24,6 @@ mapView.carrierPins = function(map) {
       );
     })
   }
-
 
 module.mapView = mapView
 })(window);

@@ -1,5 +1,12 @@
 'use strict';
 
+function copyAddress() {
+  whereAmI.select();
+  document.execCommand('copy');
+
+  return false;
+}
+
 var whereAmI;
 
 function initMap(pos) {
@@ -18,9 +25,9 @@ function initMap(pos) {
     draggable: true
   });
 
-  var infoWindow = new google.maps.InfoWindow(
-    {content: 'You are here'}
-  );
+  var infoWindow = new google.maps.InfoWindow({
+    content: 'You are here'
+  });
 
   var circle = new google.maps.Circle({
     center: null,
@@ -64,7 +71,7 @@ function initMap(pos) {
       }
 
       marker.setPosition(place.geometry.location);
-      infoWindow.setContent(place.formatted_address);
+      infoWindow.setContent(place.formatted_address + '<br><br><a style="text-align:center;display:block;" align="center" href="#Foo">Copy address to clipboard</a>');
       whereAmI = place.formatted_address;
       if (place.geometry.viewport) {
         bounds.union(place.geometry.viewport);
@@ -108,7 +115,7 @@ function initMap(pos) {
             marker.setPosition(pos);
             setCircle(pos);
             map.fitBounds(circle.getBounds());
-            infoWindow.setContent(results[0].formatted_address);
+            infoWindow.setContent(results[0].formatted_address + '<br><br><a style="text-align:center;display:block;" align="center" href="#Foo" onclick="return copyAddress();">Copy address to clipboard</a>');
             whereAmI = results[0].formatted_address;
             // list.textContent = whereAmI;
           }
@@ -120,6 +127,7 @@ function initMap(pos) {
       console.log(latLng);
       address(latLng);
 
+/////m move this out of geolocation code?
       google.maps.event.addListener(marker, 'dragend', function() {
         var newLat = this.getPosition().lat();
         var newLng = this.getPosition().lng();
@@ -130,6 +138,8 @@ function initMap(pos) {
         console.log(newPos);
         address(newPos);
         // list.textContent = whereAmI;
+
+        // mapView.carrierPins(map);
       });
     },
     function() {
@@ -138,7 +148,6 @@ function initMap(pos) {
   }
   else {
     handleLocationError(false, infoWindow, map.getCenter());
-    mapView.carrierPins(map); //////// ???????????
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, center) {
@@ -147,6 +156,7 @@ function initMap(pos) {
       '<h3 style="text-align:center">Error: The Geolocation service failed.<br>Please type in address or landmark.</h3>' :
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
+    mapView.carrierPins(map);
   }
   // console.log('Marker is at: ' + whereAmI);
   // var test = document.getElementById('carrierList');
@@ -161,8 +171,8 @@ function initMap(pos) {
 function renderMap() {
   $('#yesReportOD').on('click', function() {
     initMap();
-    populateList();
     mapView.getCarrierInfo();
+    populateList();
   });
 }
 

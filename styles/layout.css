@@ -3,7 +3,13 @@
     height: 35px;
   }
 
-  #nav-barItems:hover{
+  .nav-item{
+    display: none;
+    position: relative;
+    right: 45px;
+  }
+
+  .nav-item:hover{
     display: block;
   }
 
@@ -13,7 +19,6 @@
     right: 30px;
   }
   #hamburgerMenu:hover{
-
   }
 }
 @media only screen and (min-width: 1025px){
@@ -21,11 +26,17 @@
     display: none;
 
   }
-  #hamburgerMenu:hover{
-    display:
-  }
   #nav-bar{
-
+    display: flex;
+    justify-content: space-around;
+  }
+  .nav-item{
+    padding: 0px;
+  }
+  .nav-item:hover{
+    text-shadow: 1px 1px 2px grey;
+    padding: 0px;
+    background-color: transparent;
   }
 }
 

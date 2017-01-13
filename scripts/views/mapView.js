@@ -3,10 +3,12 @@
 const mapView = {}
 
 mapView.setMaptoGeoLoc = function(ctx, next) {
-  var pos = JSON.parse(localStorage.getItem('userLocation'));
-  console.log('mapView pos', pos);
-  console.log('mapView ctx', pos);
-}
+  var marker = new google.maps.Marker({
+    postion: ctx,
+    map: map,
+    draggable: true
+  })
+};
 
 mapView.carrierPins = function(ctx, next) {
   console.log('inside carrierPins');

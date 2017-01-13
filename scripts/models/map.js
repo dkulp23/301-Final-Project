@@ -11,7 +11,6 @@ function initMap(ctx, next) {
   } else {
     userGeoLoc.getUserLocation();
   }
-  console.log(pos);
   var map = new google.maps.Map(document.getElementById('reportODMap'), {
     center: pos || {lat: 47.611435, lng: -122.330456},
     zoom: 8,

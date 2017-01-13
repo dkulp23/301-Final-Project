@@ -2,11 +2,13 @@
 
 const mapView = {}
 
-mapView.getCarrierInfo = function() {
-  Carrier.getData()
+mapView.setMaptoGeoLoc = function(ctx, next) {
+  var pos = JSON.parse(localStorage.getItem('userLocation'));
+  console.log('mapView pos', pos);
+  console.log('mapView ctx', pos);
 }
 
-mapView.carrierPins = function(map) {
+mapView.carrierPins = function(ctx, next) {
   console.log('inside carrierPins');
   console.log('map', map);
   console.log('carriers array', Carrier.allCarriers);
@@ -36,10 +38,10 @@ mapView.carrierPins = function(map) {
     })
   }
 
-  mapView.showMap = function() {
-    console.log('Why is this not working?');
+  mapView.showMap = function(ctx, next) {
     $('.page-content').hide();
     $('#mapSection').show();
+    next();
   };
 
 module.mapView = mapView

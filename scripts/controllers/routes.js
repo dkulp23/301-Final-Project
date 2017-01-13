@@ -18,7 +18,8 @@ page('regConf',
 );
 
 page('/reportOD',
-  mapView.showMap
+  mapView.showMap,
+  mapView.setMaptoGeoLoc
 );
 
 page();

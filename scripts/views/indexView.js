@@ -38,6 +38,8 @@
       event.preventDefault();
       $('.page-content').hide();
       $('#registerCarrier').fadeIn(400);
+      var el = $(this);
+      el.addClass('is-pressed');
     });
   }
   handleTheRegisterButton();

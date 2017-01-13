@@ -28,7 +28,6 @@ app.get('/carriersDB', function(req, res) {
 })
 
 app.post('/carriersDB', bodyParser.json(), function(req, res){
-  console.log(req.body.name);
   const client = new pg.Client(connectionString);
 
   client.connect(function(err){
@@ -43,6 +42,19 @@ app.post('/carriersDB', bodyParser.json(), function(req, res){
     })
 })
 res.send('Post complete')
+})
+
+app.post('/odDB', bodyParser.json(), function(req, res) {
+  console.log(req.body.name);
+  const client = new pg.Client(connectionString);
+
+  client.connect(function(err) {
+    if(err) console.error('Trouble connecting to postgres', err)
+  })
+
+  // client.query(
+    'CREATE TABLE IF NOT EXISTS od_log ()'
+  )
 })
 
 // app.post('/email', bodyParser.json(), function(req, res){

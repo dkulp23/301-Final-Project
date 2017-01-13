@@ -34,6 +34,14 @@
     });
   };
 
+  Carrier.postOD = function(obj) {
+    $.ajax({
+      url: '/odDB',
+      method: 'POST',
+      data:obj
+    });
+  };
+
   Carrier.getEmails = function () {
     var carriers = JSON.parse(localStorage.getItem('carrier_info'));
     var emails = carriers.map(function(ele) {

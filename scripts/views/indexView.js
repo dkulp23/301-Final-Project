@@ -46,12 +46,14 @@
 
   var handleTheYesReportODButton = function () {
     $('#yesReportOD').on('click', function(event) {
+      var userLocation = JSON.parse(localStorage.getItem('user_location'));
       event.preventDefault();
       $('.page-content').hide();
       $('#mapSection').fadeIn(400);
       $('#mapInfo').fadeIn(400);
       mapView.carrierPins();
       Carrier.getEmails();
+      Carrier.postOD(userLocation);
     });
   };
   handleTheYesReportODButton();

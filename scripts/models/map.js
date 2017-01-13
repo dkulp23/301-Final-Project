@@ -91,7 +91,7 @@ function initMap(pos) {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-
+      localStorage.setItem('user_location', JSON.stringify(latLng));
       var setCircle = function(pos) {
         circle.setCenter(pos);
         circle.set('radius', position.coords.accuracy);
@@ -104,7 +104,6 @@ function initMap(pos) {
         },
         function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
-            console.log(results[0].formatted_address);
             marker.setPosition(pos);
             setCircle(pos);
             map.fitBounds(circle.getBounds());

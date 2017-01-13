@@ -8,6 +8,7 @@
   var initialLoad = function (event) {
     $('.page-content').hide();
     $('#landingPage').show();
+    Carrier.getData(Carrier.getEmails);
   };
   initialLoad();
 
@@ -47,6 +48,7 @@
       $('.page-content').hide();
       $('#mapSection').fadeIn(400);
       $('#mapInfo').fadeIn(400);
+      mapView.carrierPins();
     });
   }
   handleTheYesReportODButton();

@@ -14,13 +14,15 @@
 
   Carrier.allCarriers = [ ];
 
-  Carrier.getData = function(callback) {
+  Carrier.getData = function() {
     $.getJSON('/carriersDB')
     .then(function(data) {
       data.rows.forEach(function(ele) {
-        var newCarrier = new Carrier(ele);
+        new Carrier(ele);
       });
-      callback();
+    })
+    .then(function() {
+      localStorage.setItem('carrier_info', JSON.stringify(Carrier.allCarriers));
     });
   };
 

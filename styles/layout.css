@@ -9,16 +9,10 @@
     right: 45px;
   }
 
-  .nav-item:hover{
-    display: block;
-  }
-
   #hamburgerMenu{
     max-height: 30px;
     position: fixed;
     right: 30px;
-  }
-  #hamburgerMenu:hover{
   }
 }
 @media only screen and (min-width: 1025px){
@@ -32,12 +26,6 @@
   }
   .nav-item{
     padding: 0px;
-  }
-  .nav-item:hover{
-    text-shadow: 1px 1px 2px grey;
-    padding: 0px;
-    /*TODO Chris - I think bootstrap is overriding this below?*/
-    background-color: transparent;
   }
 }
 
@@ -57,10 +45,13 @@
   padding: 15px;
 }
 
-#nav-bar a:hover {
-  background-color: #BDD5EA;
-  color: black;
-  padding: 10px;
+#topDisclaimer {
+  display: flex;
+  justify-content: center;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  background-color: #495867
+
 }
 
 #landingPage {
@@ -69,6 +60,10 @@
   height: 100%;
   margin: 0;
   padding: 50px;
+}
+#projectTitle{
+  display: flex;
+  justify-content: center;
 }
 
 #reportOD {

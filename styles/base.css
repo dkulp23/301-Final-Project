@@ -1,19 +1,20 @@
-
-/*
-@media screen and (min-width: 640px){
-  body{
-     text-decoration: line-through;
-  }
-}*/
+@media screen and (min-width: 640px) {
 
 html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  }
 }
-/*main {
-  height: 75%;
-}*/
+
+@media screen and (max-width: 640px) {
+  html, body {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+  }
+}
+
 section {
   font-family: 'Muli', sans-serif;
   background-color: #577399;
@@ -42,10 +43,8 @@ section {
 
 footer {
   font-family: 'Muli', sans-serif;
-  color: #F7F7FF;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
   background-color: #495867;
+  color: #F7F7FF;
+  height: 150px;
+  position: fixed;
 }

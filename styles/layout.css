@@ -57,7 +57,7 @@
 
 
 #informational h1 {
-  margin: 50px 130px 50px;
+  margin: 100px 50px 50px;
 }
 
 #mapInfo {
@@ -65,20 +65,9 @@
   padding: 50px;
 }
 
-li {
-  font-size: 20px;
-  margin-left: 130px;
-  padding: 5px;
-}
-
 #zip {
   margin: 0;
   padding-top: 20px;
-}
-
-#zipButton {
-  font-family: 'Muli', sans-serif;
-  margin-left: 3px
 }
 
 #carrierInfoButton {

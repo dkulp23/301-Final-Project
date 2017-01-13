@@ -29,7 +29,7 @@
       <img src="assets/hamburgerMenu.png" alt="mobile navigation menu" id="hamburgerMenu">
     </div>
   </div>
-  <h3 id="topDisclaimer">This is an educational project and should not be used in lieu of real medical assistance</h3>
+  <h3 id="topDisclaimer">This is an educational project and should not be used in lieu of conventional medical assistance</h3>
   <section id="landingPage" class="page-content">
     <div id="landingPageDiv">
       <div id="projectTitle">
@@ -70,15 +70,23 @@
     </div>
     <!-- TODO Use JS to switch between the array of images  -->
     <!--TODO Direct the user to the reportODMap section -->
-    <h1>Is this an overdose? Signs include:</h1>
-    <ul>
-      <li>The person will not wake up or respond to your voice or touch</li>
-      <li>Their breathing is very slow, irregular or has stopped</li>
-      <li>The center part of their eye is very small — sometimes called “pinpoint pupils”</li>
-      <li>Their fingernails and lips turning blue or purple</li>
-      <li>Slow heartbeat and/or low blood pressure</li>
-    </ul>
+    <div id="overdoseSigns">
+      <div id="odSigns">
+        <h1>Is this an overdose? Signs include:</h1>
+      </div>
+      <div id="odSignsList">
+        <ul>
+          <li>The person will not wake up or respond to your voice or touch</li>
+          <li>Their breathing is very slow, irregular or has stopped</li>
+          <li>The center part of their eye is very small — sometimes called “pinpoint pupils”</li>
+          <li>Their fingernails and lips turning blue or purple</li>
+          <li>Slow heartbeat and/or low blood pressure</li>
+        </ul>
+      </div>
+    </div>
     <button id="yesReportOD" href="/reportOD">Yes I am witnessing an OD and need to report</button>
+    <div id="buttonSpacing">
+    </div>
   </section>
 
   <section id="registerCarrier" class="page-content">
@@ -171,7 +179,7 @@
     </div>
   </section>
 
-  <footer>Disclaimer: Reporting an overdose using *insert app name* is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
+  <footer>Disclaimer: Reporting an overdose using Narcan Samaritan is NOT intended to be an adequate substitute for calling 911 in the event of a heroin overdose. Please notify authorities in addition to utilizing our services.</footer>
   <script src="scripts/vendor/ajax.js"></script>
   <script src="scripts/vendor/handlebars.js"></script>
   <script src="scripts/vendor/pages.js"></script>

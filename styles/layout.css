@@ -130,7 +130,6 @@ li {
 
 #zip {
   margin: 0;
-  padding-top: 20px;
 }
 
 #zipButton {
@@ -138,6 +137,10 @@ li {
   margin-left: 3px
 }
 
+#registerCarrier {
+  display: flex; 
+  justify-content: center;
+}
 #carrierInfoButton {
   font-family: 'Muli', sans-serif;
   margin-left: 3px

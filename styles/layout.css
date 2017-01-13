@@ -1,3 +1,34 @@
+@media only screen and (max-width: 1024px){
+  #nav-bar{
+    height: 35px;
+  }
+
+  #nav-barItems:hover{
+    display: block;
+  }
+
+  #hamburgerMenu{
+    max-height: 30px;
+    position: fixed;
+    right: 30px;
+  }
+  #hamburgerMenu:hover{
+
+  }
+}
+@media only screen and (min-width: 1025px){
+  #hamburgerMenu{
+    display: none;
+
+  }
+  #hamburgerMenu:hover{
+    display:
+  }
+  #nav-bar{
+
+  }
+}
+
 #nav-bar {
   font-family: 'Muli', sans-serif;
   font-size: 14px;
@@ -21,6 +52,7 @@
 }
 
 #landingPage {
+  height: 100%;
   margin: 0;
   padding: 50px;
 }

@@ -1,6 +1,6 @@
 @media only screen and (max-width: 1024px){
   .nav-item:hover{
-    display: block;
+    /*display: block;*/
   }
 
   #hamburgerMenu:hover{
@@ -10,7 +10,7 @@
 
   .nav-item:hover{
     text-shadow: 1px 1px 2px grey;
-    padding: 0px;
+    /*padding: 0px;*/
     /*TODO Chris - I think bootstrap is overriding this below?*/
     background-color: transparent;
   }
@@ -19,7 +19,6 @@
 #nav-bar a:hover {
   background-color: #BDD5EA;
   color: black;
-  padding: 10px;
 }
 
 .is-pressed {

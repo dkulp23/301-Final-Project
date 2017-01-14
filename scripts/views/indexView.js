@@ -52,11 +52,18 @@
       $('#carrierResults').fadeIn(200);
       initMap();
       mapView.carrierPins();
-      Carrier.getEmails();
       populateList();
     });
   };
   handleTheYesReportODButton();
+
+  var handleYesSendAddressButton = function() {
+    $('#yesSendAddress').on('click', function(event) {
+      event.preventDefault();
+      Carrier.getEmails();
+    });
+  };
+  handleYesSendAddressButton();
 
   var handleInfoFormSubmit = function () {
     $('#carrierInfo').submit(function(event) {

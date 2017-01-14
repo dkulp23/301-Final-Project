@@ -49,8 +49,8 @@ app.post('/email', bodyParser.json(), function(req, res){
      var helper = require('sendgrid').mail;
      var from_email = new helper.Email('app61618793@heroku.com');
      var to_email = new helper.Email(ele);
-     var subject = 'Hello World from the SendGrid Node.js Library!';
-     var content = new helper.Content('text/plain', 'Hello, Email!');
+     var subject = 'Narcan Alert: Overdose in progress';
+     var content = new helper.Content('text/plain', 'There is an overdose occurring. Please open the Narcan Alert website.');
      var mail = new helper.Mail(from_email, subject, to_email, content);
 
      var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);

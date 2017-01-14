@@ -156,4 +156,11 @@ li {
 
 #carrierResults {
   background-color: #778899;
+  min-height: 25%;
+}
+
+#carriersTitle {
+  font-variant: small-caps;
+  list-style-type: none;
+  list-style: none;
 }

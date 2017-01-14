@@ -50,10 +50,10 @@
       $('.page-content').hide();
       $('#mapSection').fadeIn(200);
       $('#carrierResults').fadeIn(200);
-      populateList();
       initMap();
       mapView.carrierPins();
       Carrier.getEmails();
+      populateList();
     });
   };
   handleTheYesReportODButton();

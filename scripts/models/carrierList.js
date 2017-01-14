@@ -1,7 +1,8 @@
-var listUl = document.getElementById('carrierList');
+// var listUl = document.getElementById('carrierList');
 
 function populateList() {
   Carrier.allCarriers.forEach(function(element) {
+    var titleEl = document.getElementById('carriersTitle');
     var name = element.name;
     // console.log(name);
     var location = element.city + ', ' + element.state + ' ' + element.zip;
@@ -14,6 +15,6 @@ function populateList() {
     var listLi = document.createElement('li');
     listLi.html = entry;
 
-    listUl.append(listLi);
+    titleEl.append(listLi);
   });
 }

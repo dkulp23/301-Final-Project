@@ -74,17 +74,17 @@ app.get('/', function(req, res) {
   const client = new pg.Client(connectionString)
 
   client.connect(function(err) {
-    if(err) console.err('Trouble connecting to postgres: ', err)
+    if(err) console.error('Trouble connecting to postgres: ', err)
 
     client.query(
-      'CREATE TABLE IF NOT EXISTS carrier_data (id SERIAL PRIMARY KEY, name VARCHAR(64) NOT NULL, number BIGINT NOT NULL, address VARCHAR(144) NOT NULL, city VARCHAR(49) NOT NULL, state VARCHAR(4) NOT NULL, zip INT NOT NULL, email VARCHAR(81) NOT NULL)'
+      'CREATE TABLE IF NOT EXISTS carrier_data (id SERIAL PRIMARY KEY, name VARCHAR(64) NOT NULL, number BIGINT NOT NULL, address VARCHAR(144) NOT NULL, city VARCHAR(49) NOT NULL, state VARCHAR(4) NOT NULL, zip INT NOT NULL, email VARCHAR(81) NOT NULL)',
       err => {
         if(err) console.error('Could not create the table', err)
         client.end()
       }
     )
   })
-  res.send('carrier_data table created')
+  res.sendFile('index.html', {root: '.'})
 })
 
 app.use(express.static('./'))

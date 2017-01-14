@@ -1,11 +1,21 @@
 @media only screen and (max-width: 1024px){
+
   #nav-bar{
   }
 
-  .nav-item{
+  #mobileMenu li {
+    padding: 0;
+    margin: 0 !important;
+  }
+
+  #navigationLinks {
     display: none;
-    position: relative;
-    right: 45px;
+  }
+
+  #mobileMenu {
+    visibility: hidden;
+    position: absolute;
+
   }
 
   #hamburgerMenu{
@@ -13,10 +23,18 @@
     position: fixed;
     right: 30px;
   }
+
   #mobileNavigation:hover #mobileMenu{
+  visibility: visible;
   display: block;
-  cursor: help;
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  font-family: 'Muli', sans-serif;
+  font-size: 14px;
+  background-color: #495867;
   }
+  /*how do I add so that the menu slow fades out when you hover off? :after?*/
 }
 @media only screen and (min-width: 1025px){
   #mobileNavigation{
@@ -29,6 +47,8 @@
   .nav-item{
     padding: 0px;
   }
+
+
 }
 
 #nav-bar {
@@ -43,6 +63,7 @@
 }
 
 #nav-bar a {
+  display: block;
   color: #F7F7FF;
   text-decoration: none;
   padding: 15px;
@@ -110,6 +131,7 @@
 #overdoseSigns {
   display: flex;
   flex-direction: column;
+  margin-left: 25%;
 }
 
 #odSigns{

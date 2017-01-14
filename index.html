@@ -26,7 +26,14 @@
       <a href="/" class="nav-item" data-content="landingPage">Home</a>
       <a href="/info" class="nav-item" data-content="informational">Information to Identify Overdoses</a>
       <a href="/register" class="nav-item" data-content="registerCarrier">Register as a Narcan Carrier</a>
+    </div>
+    <div id="mobileNavigation">
       <img src="assets/hamburgerMenu.png" alt="mobile navigation menu" id="hamburgerMenu">
+      <ul id="mobileMenu">
+        <li><a href="/" class="nav-item" data-content="landingPage">Home</a></li>
+        <li><a href="/info" class="nav-item" data-content="informational">Information to Identify Overdoses</a></li>
+        <li><a href="/register" class="nav-item" data-content="registerCarrier">Register as a Narcan Carrier</a></li>
+      </ul>
     </div>
   </div>
   <h3 id="topDisclaimer">This is an educational project and should not be used in lieu of conventional medical assistance</h3>
@@ -82,8 +89,8 @@
           <li>Slow heartbeat and/or low blood pressure</li>
         </ul>
       </div>
+      <button id="yesReportOD" href="/reportOD">Yes I am witnessing an OD and need to report</button>
     </div>
-    <button id="yesReportOD" href="/reportOD">Yes I am witnessing an OD and need to report</button>
     <div id="buttonSpacing">
     </div>
   </section>
@@ -172,7 +179,9 @@
 
   <section id="mapSection" class="page-content">
     <div id="search-box"><input id="map-input" class="controls" type="text" placeholder="Search for an address or landmark"></div>
-    <div id="reportODMap"></div>
+    <div id="mapStyling">
+      <div id="reportODMap"></div>
+    </div>
     <div id="carrierResults">
       <ul id="carrierList"></ul><br>
       <li id="carriersTitle">Carriers near you<br><br><br></li>

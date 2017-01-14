@@ -1,12 +1,22 @@
-@media only screen and (max-width: 1024px) {
-  #nav-bar {
-    height: 35px;
+
+@media only screen and (max-width: 1024px){
+
+  #nav-bar{
   }
 
-  .nav-item {
+  #mobileMenu li {
+    padding: 0;
+    margin: 0 !important;
+  }
+
+  #navigationLinks {
     display: none;
-    position: relative;
-    right: 45px;
+  }
+
+  #mobileMenu {
+    visibility: hidden;
+    position: absolute;
+
   }
 
   #hamburgerMenu {
@@ -14,10 +24,33 @@
     position: fixed;
     right: 30px;
   }
+  
+/*making a fake change so that we can merge?*/
+
+
+  #mobileNavigation:hover #mobileMenu{
+  visibility: visible;
+  display: block;
+  position: absolute;
+  z-index: 3000;
+  cursor: pointer;
+  right: 0px;
+  top: 40px;
+  font-family: 'Muli', sans-serif;
+  font-size: 14px;
+  background-color: #495867;
+  }
+
+  /*how do I add so that the menu slow fades out when you hover off? :after?*/
 }
-@media only screen and (min-width: 1025px) {
-  #hamburgerMenu {
+
+@media only screen and (min-width: 1025px){
+  #mobileNavigation{
     display: none;
+  }
+  #navigationLinks{
+    display: flex;
+    justify-content: space-around;
   }
   #nav-bar {
     display: flex;
@@ -26,9 +59,11 @@
   .nav-item {
     padding: 0px;
   }
+
 }
 
 #nav-bar {
+  max-height: 35px !important;
   font-family: 'Muli', sans-serif;
   font-size: 14px;
   list-style-type: none;
@@ -39,6 +74,7 @@
 }
 
 #nav-bar a {
+  display: block;
   color: #F7F7FF;
   text-decoration: none;
   padding: 15px;
@@ -64,7 +100,7 @@
   padding: 50px;
 }
 
-#projectTitle {
+#projectTitle{
   display: flex;
   justify-content: center;
 }
@@ -105,7 +141,7 @@
 
 #overdoseSigns {
   display: flex;
-  flex-direction: column;
+  margin-left: 25%;
 }
 
 #odSigns {

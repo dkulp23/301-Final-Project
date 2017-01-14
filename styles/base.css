@@ -17,6 +17,15 @@ section {
   display: inline-block;
   padding: 1.25em;
 }
+li {
+  list-style: none !important;
+}
+#mapStyling{
+display: flex;
+justify-content: space-around;
+height: 90vh;
+width: 90vh;
+}
 
 h3 {
   text-align: center;
@@ -28,7 +37,6 @@ h3 {
   height: inherit;
   width: inherit;
 }
-
 #reportODMap {
   min-height: 80%;
   min-width: 90%;

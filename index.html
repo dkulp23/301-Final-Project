@@ -42,19 +42,20 @@
       <div id="projectTitle">
         <h1>Narcan Alert</h1>
       </div>
-      <div>
+      <div id="reportODButtonDiv">
         <button id="reportOD" class='button'>Report an Overdose</button>
       </div>
       <div>
-        <h3 id="911">Call 911 if this is a matter of life and death</h3>
+        <h3 id="disclaimer">Call 911 if this is a matter of life and death</h3>
       </div>
-      <div>
+      <div id="registerCarrierButtonDiv">
         <button id="register" class='button'>Click here to register as a Narcan Carrier</button>
       </div>
     </div>
   </section>
 
   <section id="informational" class="page-content">
+    <button id="yesReportOD" href="/reportOD">Yes I am witnessing an OD and need to report</button>
     <div id="infoCarousel" class="carousel slide">
       <!-- Carousel items -->
       <div class="carousel-inner">
@@ -94,86 +95,85 @@
           <br >
         </p>
       </div>
-      <button id="yesReportOD" href="/reportOD">Yes I am witnessing an OD and need to report</button>
     </div>
     <div id="buttonSpacing">
     </div>
   </section>
 
   <section id="registerCarrier" class="page-content" href="/register">
-    <form id="carrierInfo" class="form">
-      <label for="name">Name:</label>
-      <input id="name" class="capitalize" pattern="^[a-zA-Z ]+$" type="text" placeholder="Full Name" required>
-      <label for="number">Phone:</label>
-      <input id="number" pattern="^\d{10}$" type="text" placeholder="1234567890" required>
-      <label for="address">Address:</label>
-      <input id="address" pattern="^[a-zA-z0-9#,. ]+$" type="text" placeholder="123 Main St" required>
-      <label for="city">City:</label>
-      <input id="city" class="capitalize" pattern="^[a-zA-Z. ]+$" type="text" placeholder="Seattle" required>
-      <label for="state">State:</label>
-      <select id="state" name="stateList" form="carrierInfo" required>
-        <option value="">Select a State</option>
-        <option value="AL">AL</option>
-        <option value="AK">AK</option>
-        <option value="AZ">AZ</option>
-        <option value="AR">AR</option>
-        <option value="CA">CA</option>
-        <option value="CO">CO</option>
-        <option value="CT">CT</option>
-        <option value="DE">DE</option>
-        <option value="FL">FL</option>
-        <option value="GA">GA</option>
-        <option value="HI">HI</option>
-        <option value="ID">ID</option>
-        <option value="IL">IL</option>
-        <option value="IN">IN</option>
-        <option value="IA">IA</option>
-        <option value="KS">KS</option>
-        <option value="KY">KY</option>
-        <option value="LA">LA</option>
-        <option value="ME">ME</option>
-        <option value="MD">MD</option>
-        <option value="MA">MA</option>
-        <option value="MI">MI</option>
-        <option value="MN">MN</option>
-        <option value="MS">MS</option>
-        <option value="MO">MO</option>
-        <option value="MT">MT</option>
-        <option value="NE">NE</option>
-        <option value="NV">NV</option>
-        <option value="NH">NH</option>
-        <option value="NJ">NJ</option>
-        <option value="NM">NM</option>
-        <option value="NY">NY</option>
-        <option value="NC">NC</option>
-        <option value="ND">ND</option>
-        <option value="OH">OH</option>
-        <option value="OK">OK</option>
-        <option value="OR">OR</option>
-        <option value="PA">PA</option>
-        <option value="RI">RI</option>
-        <option value="SC">SC</option>
-        <option value="SD">SD</option>
-        <option value="TN">TN</option>
-        <option value="TX">TX</option>
-        <option value="UT">UT</option>
-        <option value="VT">VT</option>
-        <option value="VA">VA</option>
-        <option value="WA">WA</option>
-        <option value="WV">WV</option>
-        <option value="WI">WI</option>
-        <option value="WY">WY</option>
-      </select>
-      <label for="zip">Zip:</label>
-      <input id="zip" pattern="^\d{5}$" type="text" placeholder="98101" rows="1" column="1" required>
-      <!-- <label>License Number:</label>
-      <input id="license" pattern="" type="text" placeholder="123-456-789" required> -->
-      <label for="email">Email:</label>
-      <input id="email" type="email" placeholder="ABC@gmail.com" required>
-      <label for="submitButton">
-        <button id="formSubmitButton" type="submit" form="carrierInfo" href="/regConf">Submit Info</button>
-      </label>
-    </form>
+      <form id="carrierInfo" class="form">
+        <label for="name">Name:</label>
+        <input id="name" class="capitalize" pattern="^[a-zA-Z ]+$" type="text" placeholder="Full Name" required>
+        <label for="number">Phone:</label>
+        <input id="number" pattern="^\d{10}$" type="text" placeholder="1234567890" required>
+        <label for="address">Address:</label>
+        <input id="address" pattern="^[a-zA-z0-9#,. ]+$" type="text" placeholder="123 Main St" required>
+        <label for="city">City:</label>
+        <input id="city" class="capitalize" pattern="^[a-zA-Z. ]+$" type="text" placeholder="Seattle" required>
+        <label for="state">State:</label>
+        <select id="state" name="stateList" form="carrierInfo" required>
+          <option value="">Select a State</option>
+          <option value="AL">AL</option>
+          <option value="AK">AK</option>
+          <option value="AZ">AZ</option>
+          <option value="AR">AR</option>
+          <option value="CA">CA</option>
+          <option value="CO">CO</option>
+          <option value="CT">CT</option>
+          <option value="DE">DE</option>
+          <option value="FL">FL</option>
+          <option value="GA">GA</option>
+          <option value="HI">HI</option>
+          <option value="ID">ID</option>
+          <option value="IL">IL</option>
+          <option value="IN">IN</option>
+          <option value="IA">IA</option>
+          <option value="KS">KS</option>
+          <option value="KY">KY</option>
+          <option value="LA">LA</option>
+          <option value="ME">ME</option>
+          <option value="MD">MD</option>
+          <option value="MA">MA</option>
+          <option value="MI">MI</option>
+          <option value="MN">MN</option>
+          <option value="MS">MS</option>
+          <option value="MO">MO</option>
+          <option value="MT">MT</option>
+          <option value="NE">NE</option>
+          <option value="NV">NV</option>
+          <option value="NH">NH</option>
+          <option value="NJ">NJ</option>
+          <option value="NM">NM</option>
+          <option value="NY">NY</option>
+          <option value="NC">NC</option>
+          <option value="ND">ND</option>
+          <option value="OH">OH</option>
+          <option value="OK">OK</option>
+          <option value="OR">OR</option>
+          <option value="PA">PA</option>
+          <option value="RI">RI</option>
+          <option value="SC">SC</option>
+          <option value="SD">SD</option>
+          <option value="TN">TN</option>
+          <option value="TX">TX</option>
+          <option value="UT">UT</option>
+          <option value="VT">VT</option>
+          <option value="VA">VA</option>
+          <option value="WA">WA</option>
+          <option value="WV">WV</option>
+          <option value="WI">WI</option>
+          <option value="WY">WY</option>
+        </select>
+        <label for="zip">Zip:</label>
+        <input id="zip" pattern="^\d{5}$" type="text" placeholder="98101" rows="1" column="1" required>
+        <!-- <label>License Number:</label>
+        <input id="license" pattern="" type="text" placeholder="123-456-789" required> -->
+        <label for="email">Email:</label>
+        <input id="email" type="email" placeholder="ABC@gmail.com" required>
+        <label for="submitButton">
+          <button id="formSubmitButton" type="submit" form="carrierInfo" href="/regConf">Submit Info</button>
+        </label>
+      </form>
   </section>
 
   <section id="confirmRegistration" class="page-content">

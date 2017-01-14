@@ -62,7 +62,7 @@
 }
 
 #nav-bar {
-  max-height: 35px !important;
+  max-height: 48px !important;
   font-family: 'Muli', sans-serif;
   font-size: 14px;
   list-style-type: none;
@@ -80,6 +80,7 @@
 }
 
 #topDisclaimer {
+  margin: 0;
   color: white;
   padding: 5px;
   font-weight: bold;
@@ -87,7 +88,7 @@
   display: flex;
   justify-content: center;
   font-family: 'Muli', sans-serif;
-  font-size: 1em;
+  font-size: 8px;
   background-color: #495867
 }
 
@@ -103,7 +104,18 @@
   display: flex;
   justify-content: center;
 }
-
+#reportODButtonDiv{
+  display: flex;
+  justify-content: center;
+}
+#disclaimer{
+  display: flex;
+  justify-content: center;
+}
+#registerCarrierButtonDiv {
+  display: flex;
+  justify-content: center;
+}
 #reportOD {
   font-family: 'Muli', sans-serif;
   background-color: #FE5F55;
@@ -174,6 +186,12 @@
 
 #registerCarrier {
   display: flex;
+  justify-content: space-around;
+}
+
+#carrierInfo {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 

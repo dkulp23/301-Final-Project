@@ -1,4 +1,3 @@
-
 @media only screen and (max-width: 1024px){
 
   #nav-bar{
@@ -24,7 +23,7 @@
     position: fixed;
     right: 30px;
   }
-  
+
 /*making a fake change so that we can merge?*/
 
 
@@ -140,8 +139,7 @@
 }
 
 #overdoseSigns {
-  display: flex;
-  margin-left: 25%;
+  /*margin-left: 25%;*/
 }
 
 #odSigns {
@@ -151,14 +149,13 @@
 #odSigns h1 {
   font-size: 18px;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 50px;
   padding: 3px;
   text-align: center;
 }
 
-#odSignsList {
-  padding: 3px;
-  margin-left: inherit;
+#odSignsList p {
+  margin-left: 150px;
   text-align: left;
 }
 

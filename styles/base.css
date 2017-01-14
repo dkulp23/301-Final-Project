@@ -40,6 +40,7 @@ section {
   footer {
     font-family: 'Muli', sans-serif;
     background-color: #495867;
+    display: inline;
     color: #F7F7FF;
     margin-top: 20px;
     position: fixed;

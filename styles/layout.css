@@ -28,17 +28,24 @@
   visibility: visible;
   display: block;
   position: absolute;
+  z-index: 3000;
+  cursor: pointer;
   right: 0px;
   top: 40px;
   font-family: 'Muli', sans-serif;
   font-size: 14px;
   background-color: #495867;
   }
+
   /*how do I add so that the menu slow fades out when you hover off? :after?*/
 }
 @media only screen and (min-width: 1025px){
   #mobileNavigation{
     display: none;
+  }
+  #navigationLinks{
+    display: flex;
+    justify-content: space-around;
   }
   #nav-bar{
     display: flex;
@@ -47,7 +54,6 @@
   .nav-item{
     padding: 0px;
   }
-
 
 }
 
@@ -85,6 +91,7 @@
   margin: 0;
   padding: 50px;
 }
+
 #projectTitle{
   display: flex;
   justify-content: center;
@@ -130,7 +137,6 @@
 
 #overdoseSigns {
   display: flex;
-  flex-direction: column;
   margin-left: 25%;
 }
 

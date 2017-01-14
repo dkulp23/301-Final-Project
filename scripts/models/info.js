@@ -28,13 +28,13 @@ $('.carousel-linked-nav > li > a').click(function() {
 // bind 'slid' function
 $('#infoCarousel').bind('slid', function() {
 
-  // remove active class
-  $('.carousel-linked-nav .active').removeClass('active');
+    // remove active class
+    $('.carousel-linked-nav .active').removeClass('active');
 
-  // get index of currently active item
-  var idx = $('#infoCarousel .item.active').index();
+    // get index of currently active item
+    var idx = $('#infoCarousel .item.active').index();
 
-  // select currently active item and add active class
-  $('.carousel-linked-nav li:eq(' + idx + ')').addClass('active');
+    // select currently active item and add active class
+    $('.carousel-linked-nav li:eq(' + idx + ')').addClass('active');
 
 });

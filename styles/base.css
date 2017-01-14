@@ -18,12 +18,18 @@ section {
   padding: 1.25em;
 }
 
+#mapStyling{
+display: flex;
+justify-content: space-around;
+height: 90vh;
+width: 90vh;
+}
+
 #mapSection {
   overflow: hidden;
   height: inherit;
   width: inherit;
 }
-
 #reportODMap {
  min-height: 80%;
  min-width: 90%;

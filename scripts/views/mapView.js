@@ -29,6 +29,5 @@ mapView.carrierPins = function() {
     })
   }
 
-
 module.mapView = mapView
 })(window);

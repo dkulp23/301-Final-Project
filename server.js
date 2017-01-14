@@ -28,7 +28,6 @@ app.get('/carriersDB', function(req, res) {
 })
 
 app.post('/carriersDB', bodyParser.json(), function(req, res){
-  console.log(req.body.name);
   const client = new pg.Client(connectionString);
 
   client.connect(function(err){
@@ -45,30 +44,47 @@ app.post('/carriersDB', bodyParser.json(), function(req, res){
 res.send('Post complete')
 })
 
-app.post('/email', bodyParser.json(), function(req, res){
-  req.body.emails.forEach(function(ele) {
-     var helper = require('sendgrid').mail;
-     var from_email = new helper.Email('app61618793@heroku.com');
-     var to_email = new helper.Email(ele);
-     var subject = 'Hello World from the SendGrid Node.js Library!';
-     var content = new helper.Content('text/plain', 'Hello, Email!');
-     var mail = new helper.Mail(from_email, subject, to_email, content);
+// app.post('/email', bodyParser.json(), function(req, res){
+//   req.body.emails.forEach(function(ele) {
+//      var helper = require('sendgrid').mail;
+//      var from_email = new helper.Email('app61618793@heroku.com');
+//      var to_email = new helper.Email(ele);
+//      var subject = 'Hello World from the SendGrid Node.js Library!';
+//      var content = new helper.Content('text/plain', 'Hello, Email!');
+//      var mail = new helper.Mail(from_email, subject, to_email, content);
+//
+//      var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+//      var request = sg.emptyRequest({
+//        method: 'POST',
+//        path: '/v3/mail/send',
+//        body: mail.toJSON(),
+//      });
+//
+//      sg.API(request, function(error, response) {
+//        console.log(response.statusCode);
+//        console.log(response.body);
+//        console.log(response.headers);
+//      });
+//  });
+//  //sends us home after triggering an api request
+//  res.redirect('/')
+// })
 
-     var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
-     var request = sg.emptyRequest({
-       method: 'POST',
-       path: '/v3/mail/send',
-       body: mail.toJSON(),
-     });
+app.get('/', function(req, res) {
+  const client = new pg.Client(connectionString)
 
-     sg.API(request, function(error, response) {
-       console.log(response.statusCode);
-       console.log(response.body);
-       console.log(response.headers);
-     });
- });
- //sends us home after triggering an api request
- res.redirect('/')
+  client.connect(function(err) {
+    if(err) console.err('Trouble connecting to postgres: ', err)
+
+    client.query(
+      'CREATE TABLE IF NOT EXISTS carrier_data (id SERIAL PRIMARY KEY, name VARCHAR(64) NOT NULL, number BIGINT NOT NULL, address VARCHAR(144) NOT NULL, city VARCHAR(49) NOT NULL, state VARCHAR(4) NOT NULL, zip INT NOT NULL, email VARCHAR(81) NOT NULL)'
+      err => {
+        if(err) console.error('Could not create the table', err)
+        client.end()
+      }
+    )
+  })
+  res.send('carrier_data table created')
 })
 
 app.use(express.static('./'))

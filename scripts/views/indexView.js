@@ -8,6 +8,7 @@
   var initialLoad = function (event) {
     $('.page-content').hide();
     $('#landingPage').show();
+    Carrier.getData();
   };
   initialLoad();
 
@@ -29,7 +30,7 @@
       $('.page-content').hide();
       $('#informational').fadeIn(400);
     });
-  }
+  };
   handleTheReportODButton();
 
   var handleTheRegisterButton = function () {
@@ -37,18 +38,24 @@
       event.preventDefault();
       $('.page-content').hide();
       $('#registerCarrier').fadeIn(400);
+      var el = $(this);
+      el.addClass('is-pressed');
     });
-  }
+  };
   handleTheRegisterButton();
 
   var handleTheYesReportODButton = function () {
     $('#yesReportOD').on('click', function(event) {
       event.preventDefault();
       $('.page-content').hide();
-      $('#mapSection').fadeIn(400);
-      $('#mapInfo').fadeIn(400);
+      $('#mapSection').fadeIn(200);
+      $('#carrierResults').fadeIn(200);
+      initMap();
+      mapView.carrierPins();
+      Carrier.getEmails();
+      populateList();
     });
-  }
+  };
   handleTheYesReportODButton();
 
   var handleInfoFormSubmit = function () {
@@ -62,15 +69,14 @@
         state: $(this).find('#state').val(),
         zip: parseInt($(this).find('#zip').val()),
         email: $(this).find('#email').val()
-      }
-      console.log(carrierData);
+      };
       Carrier.postData(carrierData);
       $('.page-content').hide();
       $('#carrierInfo')[0].reset();
       $('#confirmRegistration').fadeIn(500);
       // TODO investigate the serialize method of jQuery for form data submission
     });
-  }
+  };
   handleInfoFormSubmit();
 
 })(window);

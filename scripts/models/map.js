@@ -3,12 +3,12 @@
 var clippy = new Clipboard('.btn');
 
 var whereAmI;
-
+var map;
 function initMap(pos) {
 
   $('#map-input').val('');
 
-  var map = new google.maps.Map(document.getElementById('reportODMap'), {
+  map = new google.maps.Map(document.getElementById('reportODMap'), {
     center: pos || {lat: 47.611435, lng: -122.330456},
     zoom: 10,
     styles: [{'featureType':'administrative','elementType':'labels.text.fill','stylers':[{'color':'#444444'}]},{'featureType':'landscape','elementType':'all','stylers':[{'color':'#f2f2f2'}]},{'featureType':'landscape.man_made','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#eae9ed'}]},{'featureType':'landscape.natural','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'landscape.natural.landcover','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'landscape.natural.terrain','elementType':'geometry','stylers':[{'visibility':'on'},{'color':'#d2e0b7'}]},{'featureType':'poi','elementType':'all','stylers':[{'visibility':'on'}]},{'featureType':'poi.park','elementType':'geometry.fill','stylers':[{'visibility':'on'}]},{'featureType':'road','elementType':'all','stylers':[{'saturation':-100},{'lightness':45}]},{'featureType':'road','elementType':'geometry.fill','stylers':[{'visibility':'on'},{'color':'#ffffff'}]},{'featureType':'road','elementType':'geometry.stroke','stylers':[{'visibility':'off'}]},{'featureType':'road','elementType':'labels.text.stroke','stylers':[{'visibility':'off'}]},{'featureType':'road.highway','elementType':'all','stylers':[{'visibility':'simplified'}]},{'featureType':'road.arterial','elementType':'labels.icon','stylers':[{'visibility':'off'}]},{'featureType':'transit','elementType':'all','stylers':[{'visibility':'off'}]},{'featureType':'water','elementType':'all','stylers':[{'color':'#b3dced'},{'visibility':'on'}]}]
@@ -121,7 +121,7 @@ function initMap(pos) {
       console.log(latLng);
       address(latLng);
 
-/////m move this out of geolocation code?
+///// move this out of geolocation code?
       google.maps.event.addListener(marker, 'dragend', function() {
         var newLat = this.getPosition().lat();
         var newLng = this.getPosition().lng();
@@ -150,7 +150,7 @@ function initMap(pos) {
       '<h3 style="text-align:center">Error: The Geolocation service failed.<br>Please type in address or landmark.</h3>' :
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
-    mapView.carrierPins(map);
+    // mapView.carrierPins(map);
   }
   // console.log('Marker is at: ' + whereAmI);
   // var test = document.getElementById('carrierList');
@@ -158,20 +158,20 @@ function initMap(pos) {
   // list.textContent = whereAmI;
   // test.append(list);
 
-  mapView.carrierPins(map);
-  clippy.destroy();
+  // mapView.carrierPins(map);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-function renderMap() {
-  $('#yesReportOD').on('click', function() {
-    initMap();
-    mapView.getCarrierInfo();
-    populateList();
-  });
-}
+// function renderMap() {
+//   $('#yesReportOD').on('click', function() {
+//     initMap();
+//   });
+// }
 
-renderMap();
+// renderMap();
+
+
+// clippy.destroy();
 
 // $('#copy').tooltip({
 //   trigger: 'click',

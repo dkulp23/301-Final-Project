@@ -46,10 +46,6 @@
 }
 
 #topDisclaimer {
-  color: white;
-  padding: 5px;
-  font-weight: bold;
-  letter-spacing: 1px;
   display: flex;
   justify-content: center;
   font-family: 'Muli', sans-serif;
@@ -142,25 +138,10 @@ li {
 }
 
 #registerCarrier {
-  display: flex;
+  display: flex; 
   justify-content: center;
 }
 #carrierInfoButton {
   font-family: 'Muli', sans-serif;
   margin-left: 3px
-}
-
-#copy {
-  list-style: none;
-}
-
-#carrierResults {
-  background-color: #778899;
-  min-height: 25%;
-}
-
-#carriersTitle {
-  font-variant: small-caps;
-  list-style-type: none;
-  list-style: none;
 }

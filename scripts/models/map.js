@@ -1,5 +1,7 @@
 'use strict';
 
+var clippy = new Clipboard('.btn');
+
 var whereAmI;
 var map;
 function initMap(pos) {
@@ -18,9 +20,9 @@ function initMap(pos) {
     draggable: true
   });
 
-  var infoWindow = new google.maps.InfoWindow(
-    {content: 'You are here'}
-  );
+  var infoWindow = new google.maps.InfoWindow({
+    content: 'You are here'
+  });
 
   var circle = new google.maps.Circle({
     center: null,
@@ -64,8 +66,8 @@ function initMap(pos) {
       }
 
       marker.setPosition(place.geometry.location);
-      infoWindow.setContent(place.formatted_address);
       whereAmI = place.formatted_address;
+      infoWindow.setContent(place.formatted_address + '<br><br><a id="copy" class="btn" style="text-align:center;display:block;" align="center" data-clipboard-text="' + whereAmI + '" href="javascript:void(0)">Copy address to clipboard</a>');
       if (place.geometry.viewport) {
         bounds.union(place.geometry.viewport);
       } else {
@@ -108,9 +110,8 @@ function initMap(pos) {
             marker.setPosition(pos);
             setCircle(pos);
             map.fitBounds(circle.getBounds());
-            infoWindow.setContent(results[0].formatted_address);
             whereAmI = results[0].formatted_address;
-            // list.textContent = whereAmI;
+            infoWindow.setContent(results[0].formatted_address + '<br><br><a class="btn" style="text-align:center;display:block;" align="center" data-clipboard-text="' + whereAmI + '" href="javascript:void(0)">Copy address to clipboard</a>');
           }
           else {
             return 'Unable to retrieve your address';
@@ -120,6 +121,7 @@ function initMap(pos) {
       console.log(latLng);
       address(latLng);
 
+///// move this out of geolocation code?
       google.maps.event.addListener(marker, 'dragend', function() {
         var newLat = this.getPosition().lat();
         var newLng = this.getPosition().lng();
@@ -130,6 +132,8 @@ function initMap(pos) {
         console.log(newPos);
         address(newPos);
         // list.textContent = whereAmI;
+
+        // mapView.carrierPins(map);
       });
     },
     function() {
@@ -146,6 +150,7 @@ function initMap(pos) {
       '<h3 style="text-align:center">Error: The Geolocation service failed.<br>Please type in address or landmark.</h3>' :
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
+    // mapView.carrierPins(map);
   }
   // console.log('Marker is at: ' + whereAmI);
   // var test = document.getElementById('carrierList');
@@ -153,14 +158,51 @@ function initMap(pos) {
   // list.textContent = whereAmI;
   // test.append(list);
 
+  // mapView.carrierPins(map);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-function renderMap() {
-  $('#yesReportOD').on('click', function() {
-    initMap();
-    populateList();
-  });
-}
+// function renderMap() {
+//   $('#yesReportOD').on('click', function() {
+//     initMap();
+//   });
+// }
 
-renderMap();
+// renderMap();
+
+
+// clippy.destroy();
+
+// $('#copy').tooltip({
+//   trigger: 'click',
+//   placement: 'bottom'
+// });
+//
+// function setTooltip() {
+//   function setTooltip(message) {
+//     $('#copy').tooltip('hide')
+//     .attr('data-original-title', message)
+//     .tooltip('show');
+//   };
+// };
+//
+// function hideTooltip() {
+//   setTimeout(function() {
+//     $('#copy').tooltip('hide');
+//   }, 1000);
+// };
+//
+// clippy.on('success', function(e) {
+//   setTooltip('Copied!');
+//   hideTooltip();
+// });
+//
+// clippy.on('error', function(e) {
+//   setTooltip('Failed!');
+//   hideTooltip();
+// });
+
+
+// function copyAddress(loc) {
+//   var copyEl = document.getElementById('copy');
+// }

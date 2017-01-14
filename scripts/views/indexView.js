@@ -48,10 +48,12 @@
     $('#yesReportOD').on('click', function(event) {
       event.preventDefault();
       $('.page-content').hide();
-      $('#mapSection').fadeIn(400);
-      $('#mapInfo').fadeIn(400);
+      $('#mapSection').fadeIn(200);
+      $('#carrierResults').fadeIn(200);
+      initMap();
       mapView.carrierPins();
       Carrier.getEmails();
+      populateList();
     });
   };
   handleTheYesReportODButton();

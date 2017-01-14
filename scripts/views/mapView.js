@@ -21,6 +21,13 @@ mapView.carrierPins = function() {
             marker.addListener('click', function() {
               infoWindow.open(map, marker);
             });
+            var infoWindow = new google.maps.InfoWindow({
+              content:  '<div class="carrier-pin-div"><p class="carrier-pin-text">' + ele.name + '</p>' +
+                        '<p class="carrier-pin-window">' + ele.number + '</p></div>'
+            })
+            marker.addListener('click', function() {
+              infoWindow.open(map, marker)
+            })
           } else {
             alert('Address not found: ' + status);
           }
@@ -28,7 +35,6 @@ mapView.carrierPins = function() {
       );
     })
   }
-
 
 module.mapView = mapView
 })(window);

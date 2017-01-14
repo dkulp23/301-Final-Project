@@ -28,7 +28,6 @@ app.get('/carriersDB', function(req, res) {
 })
 
 app.post('/carriersDB', bodyParser.json(), function(req, res){
-  console.log(req.body.name);
   const client = new pg.Client(connectionString);
 
   client.connect(function(err){

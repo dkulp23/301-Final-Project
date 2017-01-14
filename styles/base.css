@@ -18,6 +18,20 @@ section {
   padding: 1.25em;
 }
 
+footer {
+  font-family: 'Muli', sans-serif;
+  background-color: #495867;
+  color: #F7F7FF;
+  /*margin-top: 20px;*/
+  position: fixed;
+  clear: both;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
 #mapSection {
   overflow: hidden;
   height: inherit;
@@ -35,19 +49,5 @@ section {
 #carrierList {
   position: relative;
   display: block;
-}
-
-  footer {
-    font-family: 'Muli', sans-serif;
-    background-color: #495867;
-    color: #F7F7FF;
-    margin-top: 20px;
-    position: fixed;
-    clear: both;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    text-align: center;
-  }
+  
 }

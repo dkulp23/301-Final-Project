@@ -23,7 +23,7 @@ mapView.carrierPins = function() {
             });
             var infoWindow = new google.maps.InfoWindow({
               content:  '<div class="carrier-pin-div"><p class="carrier-pin-text">' + ele.name + '</p>' +
-                        `<a href="${ele.number}">${ele.number}</a></div>`
+                        `<a href="tel:${ele.number}">${ele.number}</a></div>`
                         // '<p>' + ele.number + '</p></div>'
             })
             marker.addListener('click', function() {

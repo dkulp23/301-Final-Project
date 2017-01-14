@@ -85,3 +85,11 @@ li {
   font-family: 'Muli', sans-serif;
   margin-left: 3px
 }
+
+#copy {
+  list-style: none;
+}
+
+#carrierResults {
+  background-color: #778899;
+}

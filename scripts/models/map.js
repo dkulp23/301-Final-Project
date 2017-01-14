@@ -1,11 +1,6 @@
 'use strict';
 
-function copyAddress() {
-  whereAmI.select();
-  document.execCommand('copy');
-
-  return false;
-}
+var clippy = new Clipboard('.btn');
 
 var whereAmI;
 
@@ -71,8 +66,8 @@ function initMap(pos) {
       }
 
       marker.setPosition(place.geometry.location);
-      infoWindow.setContent(place.formatted_address + '<br><br><a style="text-align:center;display:block;" align="center" href="#Foo">Copy address to clipboard</a>');
       whereAmI = place.formatted_address;
+      infoWindow.setContent(place.formatted_address + '<br><br><a id="copy" class="btn" style="text-align:center;display:block;" align="center" data-clipboard-text="' + whereAmI + '" href="javascript:void(0)">Copy address to clipboard</a>');
       if (place.geometry.viewport) {
         bounds.union(place.geometry.viewport);
       } else {
@@ -115,9 +110,8 @@ function initMap(pos) {
             marker.setPosition(pos);
             setCircle(pos);
             map.fitBounds(circle.getBounds());
-            infoWindow.setContent(results[0].formatted_address + '<br><br><a style="text-align:center;display:block;" align="center" href="#Foo" onclick="return copyAddress();">Copy address to clipboard</a>');
             whereAmI = results[0].formatted_address;
-            // list.textContent = whereAmI;
+            infoWindow.setContent(results[0].formatted_address + '<br><br><a class="btn" style="text-align:center;display:block;" align="center" data-clipboard-text="' + whereAmI + '" href="javascript:void(0)">Copy address to clipboard</a>');
           }
           else {
             return 'Unable to retrieve your address';
@@ -165,6 +159,7 @@ function initMap(pos) {
   // test.append(list);
 
   mapView.carrierPins(map);
+  clippy.destroy();
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -177,3 +172,37 @@ function renderMap() {
 }
 
 renderMap();
+
+// $('#copy').tooltip({
+//   trigger: 'click',
+//   placement: 'bottom'
+// });
+//
+// function setTooltip() {
+//   function setTooltip(message) {
+//     $('#copy').tooltip('hide')
+//     .attr('data-original-title', message)
+//     .tooltip('show');
+//   };
+// };
+//
+// function hideTooltip() {
+//   setTimeout(function() {
+//     $('#copy').tooltip('hide');
+//   }, 1000);
+// };
+//
+// clippy.on('success', function(e) {
+//   setTooltip('Copied!');
+//   hideTooltip();
+// });
+//
+// clippy.on('error', function(e) {
+//   setTooltip('Failed!');
+//   hideTooltip();
+// });
+
+
+// function copyAddress(loc) {
+//   var copyEl = document.getElementById('copy');
+// }

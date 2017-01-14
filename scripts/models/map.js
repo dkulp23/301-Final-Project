@@ -37,13 +37,9 @@ function initMap(pos) {
   var input = document.getElementById('map-input');
   var searchBox = new google.maps.places.SearchBox(input);
 
-//// WHY ISN'T THIS WORKING
-  // map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
-
   marker.addListener('click', function() {
     infoWindow.open(map, marker);
   });
-
 
 /////////////////////////////////////////// search box ///////////////////////////////////////////
 
@@ -81,12 +77,7 @@ function initMap(pos) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////// geolocation ///////////////////////////////////////////
-  if (navigator.geolocation)
-  {
-    // var positionOptions =
-    // {
-    //   enableHighAccuracy: true
-    // };
+  if (navigator.geolocation) {
 
     navigator.geolocation.getCurrentPosition(function(position) {
       var latLng = {
@@ -131,9 +122,6 @@ function initMap(pos) {
         };
         console.log(newPos);
         address(newPos);
-        // list.textContent = whereAmI;
-
-        // mapView.carrierPins(map);
       });
     },
     function() {
@@ -150,59 +138,6 @@ function initMap(pos) {
       '<h3 style="text-align:center">Error: The Geolocation service failed.<br>Please type in address or landmark.</h3>' :
       '<h3 style="text-align:center>Error: Your browser doesn\'t support geolocation.<br>Please type in address or landmark.</h3>');
     infoWindow.open(map, marker);
-    // mapView.carrierPins(map);
   }
-  // console.log('Marker is at: ' + whereAmI);
-  // var test = document.getElementById('carrierList');
-  // var list = document.createElement('p');
-  // list.textContent = whereAmI;
-  // test.append(list);
-
-  // mapView.carrierPins(map);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////
-
-// function renderMap() {
-//   $('#yesReportOD').on('click', function() {
-//     initMap();
-//   });
-// }
-
-// renderMap();
-
-
-// clippy.destroy();
-
-// $('#copy').tooltip({
-//   trigger: 'click',
-//   placement: 'bottom'
-// });
-//
-// function setTooltip() {
-//   function setTooltip(message) {
-//     $('#copy').tooltip('hide')
-//     .attr('data-original-title', message)
-//     .tooltip('show');
-//   };
-// };
-//
-// function hideTooltip() {
-//   setTimeout(function() {
-//     $('#copy').tooltip('hide');
-//   }, 1000);
-// };
-//
-// clippy.on('success', function(e) {
-//   setTooltip('Copied!');
-//   hideTooltip();
-// });
-//
-// clippy.on('error', function(e) {
-//   setTooltip('Failed!');
-//   hideTooltip();
-// });
-
-
-// function copyAddress(loc) {
-//   var copyEl = document.getElementById('copy');
-// }

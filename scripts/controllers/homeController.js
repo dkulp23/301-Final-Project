@@ -11,4 +11,4 @@
   module.homeController = homeController;
 })(window);
 
-document.getElementById("nav-bar").focus();
+document.getElementById('nav-bar').focus();

@@ -43,6 +43,7 @@ section {
     color: #F7F7FF;
     margin-top: 20px;
     position: fixed;
+    clear: both;
     right: 0;
     bottom: 0;
     left: 0;

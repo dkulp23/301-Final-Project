@@ -13,7 +13,7 @@ function populateList() {
     var entry = 'Name: ' + name + '<br>Location: ' + location + '<br><a class="phone-button" href="tel:' + phone + '">Call now</a><a class="text-button" href="sms:' + phone + '">Text now</a>';
     console.log(entry);
     var listLi = document.createElement('li');
-    listLi.html = entry;
+    listLi.innerHTML = entry;
 
     titleEl.append(listLi);
   });

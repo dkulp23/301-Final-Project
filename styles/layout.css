@@ -145,6 +145,7 @@ li {
   display: flex;
   justify-content: center;
 }
+
 #carrierInfoButton {
   font-family: 'Muli', sans-serif;
   margin-left: 3px
@@ -156,11 +157,20 @@ li {
 
 #carrierResults {
   background-color: #778899;
-  min-height: 150%;
+  min-height: 50%;
 }
 
 #carriersTitle {
+  font-size: 30pt;
   font-variant: small-caps;
   list-style-type: none;
   list-style: none;
+}
+
+section#mapSection.page-content {
+  display: inline;
+}
+
+.contact-button {
+  color: white;
 }

@@ -10,11 +10,13 @@ function populateList() {
     var phone = element.number;
     // console.log(phone);
 
-    var entry = 'Name: ' + name + '<br>Location: ' + location + '<br><a class="phone-button" href="tel:' + phone + '">Call now</a><a class="text-button" href="sms:' + phone + '">Text now</a>';
-    console.log(entry);
     var listLi = document.createElement('li');
+    listLi.style.font = 'normal 15pt Muli';
+
+    var entry = 'Name: ' + name + '<br>Location: ' + location + '<br><a class="contact-button" href="tel:' + phone + '"><br>Call now</a> or <a class="contact-button" href="sms:' + phone + '">Text now</a><hr>';
     listLi.innerHTML = entry;
 
+    console.log(listLi);
     titleEl.append(listLi);
   });
 }

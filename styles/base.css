@@ -22,6 +22,7 @@ footer {
   font-family: 'Muli', sans-serif;
   background-color: #495867;
   color: #F7F7FF;
+  display: inline-block;
   /*margin-top: 20px;*/
   position: fixed;
   clear: both;
@@ -49,5 +50,4 @@ footer {
 #carrierList {
   position: relative;
   display: block;
-  
 }

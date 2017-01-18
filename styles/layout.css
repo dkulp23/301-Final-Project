@@ -1,0 +1,225 @@
+@media only screen and (max-width: 1024px){
+
+  #nav-bar{
+  }
+
+  #mobileMenu li {
+    padding: 0;
+    margin: 0 !important;
+  }
+
+  #navigationLinks {
+    display: none;
+  }
+
+  #mobileMenu {
+    visibility: hidden;
+    position: absolute;
+
+  }
+
+  #hamburgerMenu {
+    max-height: 30px;
+    position: fixed;
+    right: 30px;
+  }
+
+/*making a fake change so that we can merge?*/
+
+
+  #mobileNavigation:hover #mobileMenu{
+  visibility: visible;
+  display: block;
+  position: absolute;
+  z-index: 3000;
+  cursor: pointer;
+  right: 0px;
+  top: 40px;
+  font-family: 'Muli', sans-serif;
+  font-size: 14px;
+  background-color: #495867;
+  }
+
+  /*how do I add so that the menu slow fades out when you hover off? :after?*/
+}
+
+@media only screen and (min-width: 1025px){
+  #mobileNavigation{
+    display: none;
+  }
+  #navigationLinks{
+    display: flex;
+    justify-content: space-around;
+  }
+  #nav-bar {
+    display: flex;
+    justify-content: space-around;
+  }
+  .nav-item {
+    padding: 0px;
+  }
+
+}
+
+#nav-bar {
+  max-height: 48px !important;
+  font-family: 'Muli', sans-serif;
+  font-size: 14px;
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  background-color: #495867;
+}
+
+#nav-bar a {
+  display: block;
+  color: #F7F7FF;
+  text-decoration: none;
+  padding: 15px;
+}
+
+#topDisclaimer {
+  margin: 0;
+  color: white;
+  padding: 5px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Muli', sans-serif;
+  font-size: 8px;
+  background-color: #495867
+}
+
+#landingPage {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  padding: 50px;
+}
+
+#projectTitle{
+  display: flex;
+  justify-content: center;
+}
+#reportODButtonDiv{
+  display: flex;
+  justify-content: center;
+}
+#disclaimer{
+  display: flex;
+  justify-content: center;
+}
+#registerCarrierButtonDiv {
+  display: flex;
+  justify-content: center;
+}
+#reportOD {
+  font-family: 'Muli', sans-serif;
+  background-color: #FE5F55;
+  color: #F7F7FF;
+  font-size: 20px;
+  margin: 50px 100px 50px;
+  height: 150px;
+  width: 150px;
+  border: solid 1px #FE5F55;
+  border-radius: 50%;
+}
+
+#register {
+  font-family: 'Muli', sans-serif;
+  margin-top: 8px;
+  margin-left: 25px;
+  padding: 5px;
+}
+
+#yesReportOD {
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Muli', sans-serif;
+  background-color: #FE5F55;
+  color: #F7F7FF;
+  font-size: 20px;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+  border: solid 1px #FE5F55;
+  border-radius: 50%;
+  padding-bottom: 20px;
+}
+
+#overdoseSigns {
+  /*margin-left: 25%;*/
+}
+
+#odSigns {
+  justify-content: center;
+}
+
+#odSigns h1 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 50px;
+  padding: 3px;
+  text-align: center;
+}
+
+#odSignsList p {
+  margin-left: 150px;
+  text-align: left;
+}
+
+#buttonSpacing {
+  height: 30px;
+}
+
+#mapInfo {
+  margin: 0;
+  padding: 50px;
+}
+
+#zip {
+  margin: 0;
+}
+
+#registerCarrier {
+  display: flex;
+  justify-content: space-around;
+}
+
+#carrierInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#carrierInfoButton {
+  font-family: 'Muli', sans-serif;
+  margin-left: 3px
+}
+
+#copy {
+  list-style: none;
+}
+
+#carrierResults {
+  background-color: #778899;
+  min-height: 50%;
+}
+
+#carriersTitle {
+  font-size: 30pt;
+  font-variant: small-caps;
+  list-style-type: none;
+  list-style: none;
+}
+
+section#mapSection.page-content {
+  display: inline;
+}
+
+.contact-button {
+  color: white;
+}

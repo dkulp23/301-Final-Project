@@ -1,0 +1,66 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  background-color: #577399 !important;
+}
+
+section {
+  font-family: 'Muli', sans-serif;
+  background-color: #577399;
+  display: inline-block;
+  padding: 1.25em;
+}
+li {
+  list-style: none !important;
+}
+#mapStyling{
+display: flex;
+justify-content: space-around;
+height: 90vh;
+width: 90vh;
+}
+
+h3 {
+  text-align: center;
+  font-size: 8px;
+}
+
+#mapSection {
+  overflow: hidden;
+  height: inherit;
+  width: inherit;
+}
+#reportODMap {
+  min-height: 80%;
+  min-width: 90%;
+  margin: 0;
+  padding: 50px;
+  position: relative;
+}
+
+#carrierList {
+  position: relative;
+  display: block;
+}
+
+footer {
+  font-family: 'Muli', sans-serif;
+  background-color: #495867;
+  color: #F7F7FF;
+  display: inline-block;
+  /*margin-top: 20px;*/
+  position: fixed;
+  clear: both;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
